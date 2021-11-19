@@ -20,8 +20,7 @@ const receiveErrors = errors => ({
 
 export const signup = formUser => dispatch => {
   return postUser(formUser)
-    .then(user => dispatch(receiveCurrentUser(user)), 
-          errors => dispatch(receiveErrors(errors)))
+    .then(user => dispatch(receiveCurrentUser(user)))
 }
 
 export const login = formUser => dispatch => {
