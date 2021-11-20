@@ -10,6 +10,9 @@ const Splash = () => {
                 <div className="splash-slogan">
                     <p>Remember everything and tackle any project with your notes, tasks, and schedule all in one place.</p>
                 </div>
+                <div>
+                    <img className="splash-image" src={window.splash}></img>
+                </div>
             </div>
         </div>
     )
