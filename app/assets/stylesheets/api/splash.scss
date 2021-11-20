@@ -1,20 +1,23 @@
 
 .splash {
-    font-family: 'Soleil_Regular';
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .row {
     max-width: 1220px;
-    text-align: center;
+    margin: 0 auto;
 }
 
 .splash-slogan-header {
+    margin-top: 60px;
+    font-family: 'Soleil_Bold';
     font-size: 56px;
     // font-weight: bold;
 }
 
 .splash-slogan {
+    font-family: 'Soleil_Regular';
     font-size: 24px;
 }

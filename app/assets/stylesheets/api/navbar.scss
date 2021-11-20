@@ -1,0 +1,36 @@
+.navbar {
+    height: 60px;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'Soleil_Regular';
+}
+
+.left-nav {
+    width: 610px;
+    margin-top: 20px;
+    // justify-content: left;
+    float: left;
+    // line-height: 20px;
+}
+
+.left-nav a {
+    margin-right: 10px;
+}
+
+.right-nav {
+    margin-top: 20px;
+}
+
+.right-nav a {
+    width: 610px;
+    justify-content: right;
+    margin-right: 10px;
+}
+
+.nav-container {
+    display: flex;
+    border-bottom: 1px solid black;
+    flex-direction: column;
+}
