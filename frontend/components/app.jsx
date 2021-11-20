@@ -1,11 +1,12 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import Splash from './splash/splash'
 
 const App = () => (
   <div>
     <header>
-      <h1>Clevernote</h1>
     </header>
+      <Splash />
   </div>
 );
 
