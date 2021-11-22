@@ -6,19 +6,6 @@ import Modal from '../session_modal/session_modal'
 export default class Splash extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-            show: false
-          };
-        this.showModal = this.showModal.bind(this);
-        this.hideModal = this.hideModal.bind(this);
-    };
-
-    showModal = () => {
-        this.setState({ show: true });
-    };
-    
-      hideModal = () => {
-        this.setState({ show: false });
     };
 
     render(){
@@ -35,7 +22,6 @@ export default class Splash extends React.Component {
                             <p>one place.</p>
                         </div>
                         <div>
-                        
                             <Link to="/signup">
                                 <button className="signup-button" onClick={this.showModal}>Sign up for free</button>
                             </Link>

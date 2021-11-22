@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Modal from '../../session_modal/session_modal';
 
 const Navbar = () => {
     return (
