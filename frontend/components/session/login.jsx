@@ -9,6 +9,15 @@ class Login extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
+  }
+
+  demoLogin(e) {
+    e.preventDefault();
+    this.props.login({
+      email: 'demo@clevernote.com',
+      password: 'password',
+    }).then(() => this.props.history.push('/home'));
   }
 
   handleInput(type) {
@@ -44,6 +53,7 @@ class Login extends React.Component {
             onChange={this.handleInput('password')}
           />
             <button onClick={this.handleSubmit}>Log In!</button>
+            <button onClick={this.demoLogin}>Demo Log In</button>
           </label>
         </form>
       </div>
