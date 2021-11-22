@@ -1,5 +1,5 @@
 {
-  "name": "Clevernote",
+  "name": "clevernote",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
