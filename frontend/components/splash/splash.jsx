@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from './navbar/navbar'
 import { Link } from 'react-router-dom'
-import Modal from '../session_modal/session_modal'
 
 export default class Splash extends React.Component {
     constructor(props){

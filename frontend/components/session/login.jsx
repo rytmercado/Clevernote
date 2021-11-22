@@ -35,7 +35,7 @@ class Login extends React.Component {
   render() {
     // console.log(this.props);
     return (
-      <div className="session-form">
+      <div className="sessionform">
         <h2>Log In!</h2>
         <form>
           <label>Email:
