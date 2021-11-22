@@ -1,12 +1,14 @@
 import React from "react";
-import { Route } from "react-router-dom";
-import Navbar from "./splash/navbar/navbar";
+import { Switch, Route } from "react-router-dom";
 import Splash from './splash/splash'
 
 const App = () => (
   <div>
-      <Navbar />
-      <Splash />
+    <Switch>
+      {/* <Route path="/signup" component={<div><p>signup</p></div>} /> */}
+      {/* <Route path="/login" component={<div><p>login</p></div>} /> */}
+      <Route path="/" component={Splash} />
+    </Switch>
   </div>
 );
 

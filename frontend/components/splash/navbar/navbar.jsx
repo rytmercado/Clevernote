@@ -1,19 +1,18 @@
 import React from 'react';
-// import logo from '../../../../app/assets/images/logo.png'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
         <header className="nav-container">
             <div className="topnav">
-                {/* <a>Home</a> */}
-                {/* <a> */}
-                    <img className="nav-logo" src={window.logo}></img>
-                {/* </a> */}
+                <img className="nav-logo" src={window.logo}></img>
                 <a id="nav-title">Clevernote</a>
                 <a>Github</a>
                 <div className="topnav-right">
                     <a>Help</a>
-                    <a>Log In</a>
+                    <Link to="/login">
+                        Log In
+                    </Link>
                 </div>
             </div>
         </header>

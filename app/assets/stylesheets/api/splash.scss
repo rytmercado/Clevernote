@@ -26,7 +26,7 @@
 .splash-image {
     width: 980px;
     height: auto;
-    padding-top: 80px;
+    padding-top: 50px;
 }
 
 .signup-button {
@@ -40,4 +40,13 @@
     padding: 16px 80px;
     line-height: normal;
     font-weight: bold;
+}
+
+.splash-login-text {
+    font-family: Soleil_Regular;
+    padding-top: 20px;
+    text-decoration: underline;
+    :hover {
+        color: #00a82d;
+    }
 }
