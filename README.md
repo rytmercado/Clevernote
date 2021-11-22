@@ -1,24 +1,3 @@
-# README
+WIP Splash Page progress:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<img width="1919" alt="splash-comparo" src="https://user-images.githubusercontent.com/83959916/142785653-3002a639-012e-4fab-8f1b-9e3c1eca576e.png">
