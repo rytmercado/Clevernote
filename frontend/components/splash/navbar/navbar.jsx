@@ -6,8 +6,8 @@ const Navbar = () => {
         <header className="nav-container">
             <div className="topnav">
                 <img className="nav-logo" src={window.logo}></img>
-                <a id="nav-title">Clevernote</a>
-                <a>Github</a>
+                <a href='#/' id="nav-title">Clevernote</a>
+                <a href='https://github.com/rytmercado' target="_blank">Github</a>
                 <div className="topnav-right">
                     <a>Help</a>
                     <Link to="/login">
