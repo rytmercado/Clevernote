@@ -7,5 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Note.destroy_all
 
 demouser = User.create(email: 'demo@clevernote.com', password: 'password')
+demonote = Note.create(title: 'demo note', body: 'demo body', user_id: demouser.id)
+
