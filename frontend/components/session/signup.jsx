@@ -8,6 +8,7 @@ class Signup extends React.Component {
             password: '',
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.demoLogin = this.demoLogin.bind(this);
     }
 
     handleInput(type) {
@@ -21,6 +22,14 @@ class Signup extends React.Component {
         this.props.signup(this.state)
             .then(() => this.props.history.push('/home'));
     }
+
+    demoLogin(e) {
+        e.preventDefault();
+        this.props.login({
+          email: 'demo@clevernote.com',
+          password: 'password',
+        }).then(() => this.props.history.push('/home'));
+      }
     
     render () {
         return (
@@ -42,6 +51,7 @@ class Signup extends React.Component {
                         />
                     </label>
                     <button onClick={this.handleSubmit}>Sign Up</button>
+                    <button onClick={this.demoLogin}>Demo Log In</button>
                 </form>
             </div>
         );
