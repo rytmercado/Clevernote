@@ -59,27 +59,30 @@ componentDidMount() {
     // console.log(this.props);
     return (
       <div className="sessionform">
-        <h2>Log In!</h2>
-        <div className="errors">{this.renderErrors()}</div>
-        <form>
-          <label>Email:
-          <input
-            type="text"
-            value={this.state.email}
-            onChange={this.handleInput('email')}
-          />
-          </label>
+        <div className="formcontainer">
+          <h2>Clevernote</h2>
+          <div className="errors">{this.renderErrors()}</div>
+          <form>
+            <label>Email:
+            <input
+              type="text"
+              value={this.state.email}
+              onChange={this.handleInput('email')}
+            />
+            </label>
 
-          <label>Password:
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.handleInput('password')}
-          />
-            <button onClick={this.handleSubmit}>Log In!</button>
-            <button onClick={this.demoLogin}>Demo Log In</button>
-          </label>
-        </form>
+            <label>Password:
+            <input
+              type="password"
+              value={this.state.password}
+              onChange={this.handleInput('password')}
+            />
+              <button onClick={this.handleSubmit}>Log In!</button>
+              <button onClick={this.demoLogin}>Demo Log In</button>
+            </label>
+          </form>
+        </div>
+        
       </div>
     );
   }

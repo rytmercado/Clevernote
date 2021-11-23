@@ -59,26 +59,28 @@ class Signup extends React.Component {
     render () {
         return (
             <div className="sessionform">
-                <h2>SignUp!</h2>
-                <div className="errors">{this.renderErrors()}</div>
-                <form>
-                    <label>Email:
-                        <input
-                            type="text"
-                            value={this.state.email}
-                            onChange={this.handleInput('email')}
-                        />
-                    </label>
-                    <label>Password:
-                        <input
-                            type="password"
-                            value={this.state.password}
-                            onChange={this.handleInput('password')}
-                        />
-                    </label>
-                    <button onClick={this.handleSubmit}>Sign Up</button>
-                    <button onClick={this.demoLogin}>Demo Log In</button>
-                </form>
+                <div className="formcontainer">
+                <h2>Clevernote</h2>
+                    <div className="errors">{this.renderErrors()}</div>
+                    <form>
+                        <label>Email:
+                            <input
+                                type="text"
+                                value={this.state.email}
+                                onChange={this.handleInput('email')}
+                            />
+                        </label>
+                        <label>Password:
+                            <input
+                                type="password"
+                                value={this.state.password}
+                                onChange={this.handleInput('password')}
+                            />
+                        </label>
+                        <button onClick={this.handleSubmit}>Sign Up</button>
+                        <button onClick={this.demoLogin}>Demo Log In</button>
+                    </form>
+                </div>
             </div>
         );
     }
