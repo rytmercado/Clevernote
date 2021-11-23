@@ -43,7 +43,6 @@ class Login extends React.Component {
             {this.props.errors.map((error, i) => (
                 <li key={`error-${i}`}>
                     {error}
-                    {/* {console.log(error)} */}
                 </li>
             ))}
         </ul>
@@ -57,7 +56,6 @@ componentDidMount() {
 
 
   render() {
-    // console.log(this.props);
     return (
       <div className="sessionform">
       
