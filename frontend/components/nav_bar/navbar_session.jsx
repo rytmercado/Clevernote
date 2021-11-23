@@ -9,10 +9,15 @@ export default class NavbarSession extends React.Component {
     render(){
         console.log(this.props.currentUser)
         return (
-        <nav className="session-nav">
-            <h2>Hello {this.props.currentUser.email}</h2>
-            <Link to="/" onClick={() => this.props.logout()}>Log out</Link>
-        </nav>
+            <div className="session-nav-container">
+                <nav className="session-nav">
+                    <h2>Hello {this.props.currentUser.email}</h2>
+                    <Link to="/">
+
+                        <button onClick={() => this.props.logout()}>Logout</button>
+                    </Link>
+                </nav>
+            </div>
         )
     }
 }
