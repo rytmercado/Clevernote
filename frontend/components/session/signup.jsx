@@ -1,5 +1,7 @@
 import React from "react";
 
+
+
 class Signup extends React.Component {
     constructor(props) {
         super(props);
@@ -9,6 +11,7 @@ class Signup extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.demoLogin = this.demoLogin.bind(this);
+        this.renderErrors = this.renderErrors.bind(this)
     }
 
     handleInput(type) {
@@ -30,11 +33,34 @@ class Signup extends React.Component {
           password: 'password',
         }).then(() => this.props.history.push('/home'));
       }
+
+      renderErrors() {
+        if (this.props.errors.length === 0){
+            return [];
+        } 
+        return (
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>
+                        {error}
+                        {/* {console.log(error)} */}
+                    </li>
+                ))}
+            </ul>
+        )
+        
+    }
+
+    componentDidMount() {
+        this.props.clearSessionErrors();
+    }
+
     
     render () {
         return (
             <div className="sessionform">
                 <h2>SignUp!</h2>
+                <div className="errors">{this.renderErrors()}</div>
                 <form>
                     <label>Email:
                         <input

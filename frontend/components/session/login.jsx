@@ -10,6 +10,7 @@ class Login extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   demoLogin(e) {
@@ -32,11 +33,34 @@ class Login extends React.Component {
       .then(() => this.props.history.push('/home'));
   }
 
+  renderErrors() {
+    if (this.props.errors.length === 0){
+        return [];
+    } 
+    return (
+        <ul>
+            {this.props.errors.map((error, i) => (
+                <li key={`error-${i}`}>
+                    {error}
+                    {/* {console.log(error)} */}
+                </li>
+            ))}
+        </ul>
+    )
+    
+}
+
+componentDidMount() {
+  this.props.clearSessionErrors();
+}
+
+
   render() {
     // console.log(this.props);
     return (
       <div className="sessionform">
         <h2>Log In!</h2>
+        <div className="errors">{this.renderErrors()}</div>
         <form>
           <label>Email:
           <input
