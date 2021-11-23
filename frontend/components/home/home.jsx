@@ -16,7 +16,8 @@ const Home = () => {
                 <h1>Notes</h1>
             </div>
             <div className="note-body">
-                <h1>Note Body</h1>
+                <h1>Title</h1>
+                <p>Start writing here.</p>
             </div>
         </div>
     )
