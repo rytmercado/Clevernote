@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link} from 'react-router-dom';
 
 class Login extends React.Component {
   constructor(props) {
@@ -59,6 +60,7 @@ componentDidMount() {
     // console.log(this.props);
     return (
       <div className="sessionform">
+      
         <div className="formcontainer">
           <h2>Clevernote</h2>
           <div className="errors">{this.renderErrors()}</div>
@@ -79,6 +81,8 @@ componentDidMount() {
             />
               <button onClick={this.handleSubmit}>Log In!</button>
               <button onClick={this.demoLogin}>Demo Log In</button>
+              <p>Don't have an account?</p>
+              <Link to='/signup'>Create account</Link>
             </label>
           </form>
         </div>
