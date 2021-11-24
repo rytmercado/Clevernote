@@ -22,8 +22,8 @@ class Signup extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.signup(this.state)
-            .then(() => this.props.history.push('/home'));
+        this.props.signup(this.state);
+            // .then(() => this.props.history.push('/notes'));
     }
 
     demoLogin(e) {
@@ -31,7 +31,7 @@ class Signup extends React.Component {
         this.props.login({
           email: 'demo@clevernote.com',
           password: 'password',
-        }).then(() => this.props.history.push('/home'));
+        }); //.then(() => this.props.history.push('/notes'));
       }
 
       renderErrors() {

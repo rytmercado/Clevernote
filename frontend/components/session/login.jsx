@@ -19,7 +19,7 @@ class Login extends React.Component {
     this.props.login({
       email: 'demo@clevernote.com',
       password: 'password',
-    }).then(() => this.props.history.push('/home'));
+    }); // .then(() => this.props.history.push('/notes'));
   }
 
   handleInput(type) {
@@ -30,8 +30,8 @@ class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.login(this.state)
-      .then(() => this.props.history.push('/home'));
+    this.props.login(this.state);
+      // .then(() => this.props.history.push('/notes'));
   }
 
   renderErrors() {

@@ -5,7 +5,7 @@ import NavbarSessionContainer from '../nav_bar/navbar_session_container'
 
 
 
-const Home = () => {
+const Notes = () => {
     return (
         <div className="home-container">
             <div className="nav-bar">
@@ -24,4 +24,4 @@ const Home = () => {
 
 }
 
-export default Home;
+export default Notes;
