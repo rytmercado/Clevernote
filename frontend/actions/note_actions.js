@@ -38,3 +38,8 @@ export const patchNote = note => dispatch => (
     NoteApiUtil.patchNote(note)
         .then(note => dispatch(receiveNote(note)))
 );
+
+export const deleteNote = noteId => dispatch => (
+    NoteApiUtil.deleteNote(noteId)
+        .then(noteId => dispatch(removeNote(noteId)))
+)
