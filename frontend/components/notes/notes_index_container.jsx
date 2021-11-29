@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
 import { logout } from "../../actions/session_actions";
-import { getNotes, postNote } from "../../actions/note_actions";
+import { getNotes, postNote  } from "../../actions/note_actions";
 import { withRouter } from 'react-router-dom';
 
 
-import Notes from "./notes"
+import NotesIndex from "./notes_index"
 
 const mSTP = (state) => {
     return {
@@ -15,8 +15,8 @@ const mSTP = (state) => {
 
 const mDTP = dispatch => ({
     logout: () => dispatch(logout()),
-    fetchNotes: () => dispatch(getNotes()),
-    createNote: (note) => dispatch(posteNote(note)),
+    getNotes: () => dispatch(getNotes()),
+    postNote: (note) => dispatch(posteNote(note)),
 })
 
-export default withRouter(connect(mSTP, mDTP)(Notes));
+export default withRouter(connect(mSTP, mDTP)(NotesIndex));

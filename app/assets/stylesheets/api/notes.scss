@@ -1,3 +1,52 @@
-// Place all the styles related to the api/notes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.home-container {
+    display: flex;
+    width:100%;
+    height:100vh;
+    background-color: green;
+    * {
+
+        font-family: 'Soleil_Regular';
+        // height: 100%;
+    }
+}
+
+.nav-bar {
+    width: 300px;
+    background-color: grey;
+    position: relative;
+    // height: 100%
+}
+
+.note-index {
+    width: 300px;
+    background-color: 	#333333;
+    // height: 100%
+    header {
+        border-bottom: 1px solid #737373;
+
+    }
+}
+
+.notes-header {
+    height: 77px;
+    padding-top: 18px;
+    padding-left: 24px;
+    padding-right: 16px;
+    font-size: 16px;
+    color: 	#d9d9d9;
+}
+
+.note-body {
+    flex: 1 auto;
+    background-color: lightcoral;
+}
+
+.note-index-item {
+    height: 77px;
+    padding-top: 18px;
+    padding-left: 24px;
+    padding-right: 16px;
+    font-size: 13px;
+    color: 	#d9d9d9;
+}
+
