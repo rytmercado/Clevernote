@@ -21,9 +21,13 @@
     width: 300px;
     background-color: 	#333333;
     // height: 100%
-    header {
+    header, li {
         border-bottom: 1px solid #737373;
 
+    }
+
+    li:hover {
+        background-color: #404040;
     }
 }
 
@@ -48,5 +52,7 @@
     padding-right: 16px;
     font-size: 13px;
     color: 	#d9d9d9;
+
+
 }
 
