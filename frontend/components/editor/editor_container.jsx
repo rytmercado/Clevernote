@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Editor from "./editor";
-import { getNote, getNotes } from "../../actions/note_actions"
+import { getNote, getNotes, patchNote } from "../../actions/note_actions"
 
 const mSTP = (state, ownProps) => {
     const note = state.entities.notes[ownProps.match.params.noteId];
@@ -16,7 +16,8 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch) => {
     return {
         getNotes: () => dispatch(getNotes()),
-        getNote: (noteId) => dispatch(getNote(noteId))
+        getNote: (noteId) => dispatch(getNote(noteId)),
+        patchNote: note => dispatch(patchNote(note)),
     }
 }
 

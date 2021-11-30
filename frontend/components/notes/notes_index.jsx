@@ -25,7 +25,6 @@ export default class NotesIndex extends React.Component {
                     <ul>
                         {this.props.notes.map(note => {
                             let url = `/notes/${note.id}`
-                            {/* console.log(this.props.match.params) */}
                             return(
                                 <Link to={url} key={note.id} >
                                     <li onClick={() => console.log(this.props)} className="note-index-item" >{note.title}</li>
