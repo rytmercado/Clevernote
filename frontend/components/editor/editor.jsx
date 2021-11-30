@@ -5,16 +5,6 @@ export default class Editor extends React.Component {
         super(props);
     }
 
-    componentDidMount(){
-        // this.props.getNote(this.props.noteId)
-
-        console.log('here')
-    }
-
-    componentDidUpdate(){
-        console.log('update')
-    }
-
     render(){
         if(!this.props.note) {
             return null;
