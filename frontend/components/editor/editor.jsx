@@ -38,11 +38,13 @@ export default class Editor extends React.Component {
             <div className="note-body">
                 <form>
                     <input
+                        className="title-field"
                         type="text"
                         value={this.props.note.title}
                         onChange={this.handleInput('title')}
                         />
                     <input
+                        className="body-field"
                         type="text"
                         value={this.props.note.body}
                         onChange={this.handleInput('body')}
