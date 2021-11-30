@@ -47,7 +47,6 @@ export default class Editor extends React.Component {
                         value={this.props.note.body}
                         onChange={this.handleInput('body')}
                         />
-
                 </form>
 
 
