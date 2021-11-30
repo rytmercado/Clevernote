@@ -21,13 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       store = configureStore();
     }
-
-    window.store = store;
-    // window.postNote = noteApiUtil.postNote;
-    window.getNotes = noteActions.getNotes;
     window.postNote = noteActions.postNote;
-
-    // window.RECEIVE_NOTES = RECEIVE_NOTES;
-    // window.signup = sessionApiUtil.signup
+    window.store=store;
     ReactDOM.render(<Root store={store} />, root);
 })
