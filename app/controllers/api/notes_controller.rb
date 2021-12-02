@@ -29,7 +29,7 @@ class Api::NotesController < ApplicationController
         @note = Note.find_by(id: params[:note][:id])
 
         if @note.update(note_params)
-            render json: @note
+            render :show
         else
             render json: @note.errors.full_messages, status: 422
         end
