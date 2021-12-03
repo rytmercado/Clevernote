@@ -21,13 +21,20 @@ Link: clvernote.herokuapp.com
 #### -CSS
 
 ## Contributions <a name="contributions"></a>
-##### You can make contributions to my project here! 
+
+##### You can make contributions to my project here!
  <a href="https://github.com/rytmercado">Contribute Here</a>
+ 
 ## Illustrations <a name="illustrations"></a>
+
 <img width="960" alt="clevernote_slash" src="https://user-images.githubusercontent.com/83959916/144643722-584fe0d0-ddb6-474b-ace1-2816b4156774.png">
 ## Questions <a name="questions"></a>
+
 #### If you have any questions please reach out to me via E-Mail: rytmercado@gmail.com
+
 ## Status <a name="status"></a>
+
 In progress.
 ## Sources <a name="sources"></a>
+
 In progress.
