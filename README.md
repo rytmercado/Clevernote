@@ -13,7 +13,7 @@ A note taking app made with a React frontend and Rails backend.
 7. [Sources](#sources)
 
 ## In Clevernote, users will be able to: <a name="description"></a>
-#### Write, save and delete notes in a reactive environment.
+Write, save and delete notes in a reactive environment.
 
 ## Technologies <a name="technologies"></a>
 #### -React
