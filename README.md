@@ -1,7 +1,7 @@
 # Clevernote
 A note taking app made with a React frontend and Rails backend.
 
-<a href="https://clvernote.herokuapp.com/">ClevernoteNote</a>
+<a href="https://clvernote.herokuapp.com/">Clevernote</a>
 
 ## Table of Contents
 1. [Description](#description)
