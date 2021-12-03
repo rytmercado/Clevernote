@@ -21,7 +21,5 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       store = configureStore();
     }
-    window.postNote = noteActions.postNote;
-    window.store=store;
     ReactDOM.render(<Root store={store} />, root);
 })
