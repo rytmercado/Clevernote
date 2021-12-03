@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { logout } from "../../actions/session_actions";
-import { getNotes, postNote  } from "../../actions/note_actions";
+import { getNotes, postNote, deleteNote  } from "../../actions/note_actions";
 import { withRouter } from 'react-router-dom';
 
 
@@ -16,7 +16,8 @@ const mSTP = (state) => {
 const mDTP = dispatch => ({
     logout: () => dispatch(logout()),
     getNotes: () => dispatch(getNotes()),
-    postNote: (note) => dispatch(posteNote(note)),
+    postNote: (note) => dispatch(postNote(note)),
+    deleteNote: (noteId) => dispatch(deleteNote(noteId))
 })
 
 export default withRouter(connect(mSTP, mDTP)(NotesIndex));
