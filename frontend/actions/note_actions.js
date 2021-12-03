@@ -14,9 +14,9 @@ const receiveNote = (note) => ({
     note
 });
 
-const removeNote = (noteId) => ({
+const removeNote = ({id}) => ({
     type: REMOVE_NOTE,
-    noteId
+    id
 });
 
 export const getNotes = () => dispatch => (

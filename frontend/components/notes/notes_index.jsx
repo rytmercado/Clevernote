@@ -41,9 +41,9 @@ export default class NotesIndex extends React.Component {
                             {this.props.notes.map(note => {
                                 let url = `/notes/${note.id}`
                                 return(
-                                    <div>
-                                        <Link to={url} key={note.id} >
-                                            <li className="note- index-item" >{note.title}</li>
+                                    <div key={note.id}>
+                                        <Link to={url}  >
+                                            <li  className="note-index-item" >{note.title}</li>
                                         </Link>
                                         <button onClick={() => this.props.deleteNote(note.id)}>Delete Note</button>
                                     </div>
