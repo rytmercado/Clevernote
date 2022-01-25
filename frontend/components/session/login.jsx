@@ -60,6 +60,8 @@ componentDidMount() {
       <div className="sessionform">
       
         <div className="formcontainer">
+          <img className="sessionlogo" src={window.logo}></img>
+          <br/>
           <h2>Clevernote</h2>
           <div className="errors">{this.renderErrors()}</div>
           <form>

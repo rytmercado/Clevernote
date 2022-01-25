@@ -59,6 +59,7 @@ class Signup extends React.Component {
         return (
             <div className="sessionform">
                 <div className="formcontainer">
+                <img className="sessionlogo" src={window.logo}></img>
                 <h2>Clevernote</h2>
                     <div className="errors">{this.renderErrors()}</div>
                     <form>

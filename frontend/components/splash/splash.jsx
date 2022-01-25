@@ -22,7 +22,7 @@ export default class Splash extends React.Component {
                         </div>
                         <div>
                             <Link to="/signup">
-                                <button className="signup-button" onClick={this.showModal}>Sign up for free</button>
+                                <button className="signup-button">Sign up for free</button>
                             </Link>
                         </div>
                         <div className="splash-login-text">
