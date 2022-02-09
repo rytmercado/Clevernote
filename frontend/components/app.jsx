@@ -7,7 +7,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import Notes from './notes/notes'
 
 const App = () => (
-  <div>
+  <div className="bottom-fix">
     <Switch>
       <ProtectedRoute path="/notes" component={Notes}/>
       <AuthRoute path="/signup" component={SignupContainer} />

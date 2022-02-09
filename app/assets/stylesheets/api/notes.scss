@@ -51,19 +51,19 @@
     flex: 1 auto;
     background-color: #333333;
     color: white;
-    input[type=text] {
+    input[type=text], textarea[type=text] {
         width: 100%
     }
 }
 
 .title-field {
     height: 8vh;
-    width: 100%;
+    // width: 100%;
 }
 
 .body-field {
     height: 92vh;
-    width: 100%;
+    // width: 100%;
 
 
 }
