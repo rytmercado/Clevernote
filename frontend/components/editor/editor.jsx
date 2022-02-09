@@ -8,14 +8,14 @@ export default class Editor extends React.Component {
             id: null,
             title: "",
             body: "",
-            moveNotebook: "",
             updated_at: "",
         }
     }
 
     handleInput(type) {
         return e => {
-            this.setState({[type]: e.currentTarget.value}, () => {this.props.patchNote(this.state)})
+            this.setState({[type]: e.currentTarget.value}
+                , () => {this.props.patchNote(this.state)})
         }
       }
       
@@ -40,13 +40,13 @@ export default class Editor extends React.Component {
                     <input
                         className="title-field"
                         type="text"
-                        value={this.props.note.title}
+                        value={this.state.title}
                         onChange={this.handleInput('title')}
                         />
                     <input
                         className="body-field"
                         type="text"
-                        value={this.props.note.body}
+                        value={this.state.body}
                         onChange={this.handleInput('body')}
                         />
                 </form>
