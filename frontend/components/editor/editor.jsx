@@ -43,15 +43,13 @@ export default class Editor extends React.Component {
                         value={this.state.title}
                         onChange={this.handleInput('title')}
                         />
-                    <input
+                    <textarea
                         className="body-field"
                         type="text"
                         value={this.state.body}
                         onChange={this.handleInput('body')}
                         />
                 </form>
-
-
             </div>
         )
     }
