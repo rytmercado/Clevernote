@@ -15,7 +15,7 @@ span, article, footer, time, small {
   box-sizing:inherit;
   background:transparent;
   user-select: none;
-  overflow: hidden;
+
 }
 
 

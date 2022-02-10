@@ -8,6 +8,7 @@
         font-family: 'Soleil_Regular';
         // height: 100%;
     }
+    overflow: hidden;
 }
 
 .nav-bar {
@@ -27,13 +28,13 @@
         border-bottom: 1px solid #404040;
 
     }
-
-
     button {
         color: red;
         font-size: 12px;
         border: 1px solid black;
     }
+    overflow-y: auto;
+    overflow-x:hidden
 }
 
 .note-index-container {
