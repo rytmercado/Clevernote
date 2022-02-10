@@ -8,7 +8,7 @@ import Notes from "./notes";
 export default class NotesIndex extends React.Component {
     constructor(props) {
         super(props);
-        // this.makeNewNote = this.makeNewNote.bind(this)
+        this.makeNewNote = this.makeNewNote.bind(this)
     }
 
     componentDidMount(){
@@ -33,7 +33,7 @@ export default class NotesIndex extends React.Component {
                 <div className="notes-index">
                     <header className="notes-header">
                         <h1>Notes</h1>
-                    <button onClick={() => this.props.postNote({title: 'Untitled', body: '', user_id: this.props.currentUser.id })}>New Note</button>
+                    <button onClick={this.makeNewNote}>New Note</button>
                     </header>
                     <div>
 
