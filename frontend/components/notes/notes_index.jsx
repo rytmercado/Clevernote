@@ -17,7 +17,7 @@ export default class NotesIndex extends React.Component {
     }
 
     makeNewNote(){
-        this.props.postNote({title: 'test', body: 'test', user_id: this.props.currentUser.id })
+        this.props.postNote({title: 'Title', body: 'Start writing here...', user_id: this.props.currentUser.id })
     }
 
     componentDidUpdate(prevProps){
@@ -41,7 +41,7 @@ export default class NotesIndex extends React.Component {
                             {this.props.notes.map(note => {
                                 let url = `/notes/${note.id}`
                                 return(
-                                    <div key={note.id}>
+                                    <div className='note-index-container' key={note.id}>
                                         <Link to={url}  >
                                             <li  className="note-index-item" >{note.title}</li>
                                         </Link>

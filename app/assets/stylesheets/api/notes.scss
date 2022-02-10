@@ -23,19 +23,28 @@
     background-color: 	#262626;
     // height: 100%
     border-right: 1px solid black;
-    header, li {
+    header {
         border-bottom: 1px solid #404040;
 
     }
 
-    li:hover {
-        background-color: #404040;
-    }
 
     button {
         color: red;
         font-size: 12px;
     }
+}
+
+.note-index-container {
+    border-bottom: 1px solid #404040;
+
+    // :hover {
+    // background-color: #404040;
+    // }
+}
+
+.note-index-container:hover {
+    background-color: #404040;
 }
 
 .notes-header {

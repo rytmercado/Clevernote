@@ -8,7 +8,7 @@ export default class NavbarSession extends React.Component {
     }
 
     makeNewNote(){
-        this.props.postNote({title: 'test', body: 'test', user_id: this.props.currentUser.id })
+        this.props.postNote({title: 'Title', body: 'Start writing here...', user_id: this.props.currentUser.id})
     }
 
     render(){
