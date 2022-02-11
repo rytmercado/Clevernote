@@ -41,7 +41,7 @@ export default class NotesIndex extends React.Component {
                         <ul>
                             {this.props.notes.map(note => {
                                 let url = `/notes/${note.id}`
-                                console.log(note)
+                                {/* console.log(note) */}
                                 return(
                                     <div className='note-index-container' key={note.id}>
                                         <Link to={url}  >
