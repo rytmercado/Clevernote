@@ -21,7 +21,7 @@ export default class Editor extends React.Component {
       
     componentDidMount(){
         this.props.getNotes()
-            .then((res) => {this.setState(this.props.note)});
+            .then((res) => {this.setState(this.props.note, () => console.log(this.state))});
     }
 
     componentDidUpdate(prevProps){

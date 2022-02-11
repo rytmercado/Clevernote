@@ -8,7 +8,7 @@ import NotesIndex from "./notes_index"
 
 const mSTP = (state) => {
     return {
-        notes: Object.values(state.entities.notes),
+        notes: Object.values(state.entities.notes).reverse(), // this reverse might be dangerous, dont forget about it
         currentUser: state.entities.users[state.session.id],
     }
 }
