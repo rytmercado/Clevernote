@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { LOGOUT_CURRENT_USER } from "../../actions/session_actions";
 import Notes from "./notes";
 import timeSince from "../../util/time_since_util";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 // import Notes from "./notes";
 
 
@@ -47,8 +49,9 @@ export default class NotesIndex extends React.Component {
                                         <Link to={url}  >
                                             <li  className="note-index-item" >{note.title}</li>
                                         </Link>
-                                        <button onClick={() => this.props.deleteNote(note.id)}>Delete Note</button>
+                                        {/* <button >Delete Note</button> */}
                                         <a>{'last updated ' + timeSince(note.updated_at) + ' ago'}</a>
+                                        <FontAwesomeIcon onClick={() => this.props.deleteNote(note.id)} icon={faTrash} />
                                     </div>
                                 )
                                 })
