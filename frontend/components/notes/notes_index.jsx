@@ -48,7 +48,7 @@ export default class NotesIndex extends React.Component {
                                             <li  className="note-index-item" >{note.title}</li>
                                         </Link>
                                         <button onClick={() => this.props.deleteNote(note.id)}>Delete Note</button>
-                                        <a>{timeSince(note.updated_at)}</a>
+                                        <a>{'last updated ' + timeSince(note.updated_at) + ' ago'}</a>
                                     </div>
                                 )
                                 })
