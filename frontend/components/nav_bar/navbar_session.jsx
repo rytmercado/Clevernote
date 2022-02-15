@@ -16,10 +16,15 @@ export default class NavbarSession extends React.Component {
             <div className="nav-bar">
                 <div className="session-nav-container">
                     <nav className="session-nav">
-                        <h2>Hello {this.props.currentUser.email}</h2>
+                        <h2 id='session-greeting'>Hello {this.props.currentUser.email}</h2>
                         <Link to="/" onClick={() => this.props.logout()}>Logout
                         </Link>
-                        <button onClick={this.makeNewNote}>New Note</button>
+                        <button id='new-note-button' onClick={this.makeNewNote}>
+                        <a id='new-note-button-text'>New</a></button>
+                        <Link to="/notes">Notes</Link>
+                        
+                        <Link to="/notes">Tags</Link>
+                        <Link to="/notes">Notebooks</Link>
                     </nav>
                 </div>
             </div>

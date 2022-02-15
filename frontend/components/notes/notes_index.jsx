@@ -36,7 +36,6 @@ export default class NotesIndex extends React.Component {
                 <div className="notes-index">
                     <header className="notes-header">
                         <h1>Notes</h1>
-                    <button onClick={this.makeNewNote}>New Note</button>
                     </header>
                     <div>
 
