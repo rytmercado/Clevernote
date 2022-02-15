@@ -10,17 +10,12 @@
     left: 0;
     top: 0;
     width: 100%; /* Full width */
-    // height: 100vh; 
     height: 100%;/* Full height */
-    // background-color: black;
     background-image: linear-gradient(45deg, transparent 20%, #04aa6d3d 25%, transparent 25%), 
     linear-gradient(-45deg, transparent 20%, #04aa6d3d 25%, transparent 25%), 
     linear-gradient(-45deg, transparent 75%, #04aa6d3d 80%, transparent 0),
     radial-gradient(#04aa6d3d 2px, transparent 0);
     background-size: 30px 30px, 30px 30px;
-    // overflow: auto; /* Enable scroll if needed */
-    // vertical-align: middle;
-    // margin-bottom: 300px;
   }
   
   /* Full-width inputs */
@@ -28,7 +23,6 @@
     input[type=text], input[type=password] {
     width: 50%;
     padding: 12px 20px;
-    // margin: 8px 0;
     display: block;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -48,7 +42,6 @@
     width: 100%;
   }
   
-  /* Add a hover effect for buttons */
   button:hover {
     opacity: 0.8;
   }
