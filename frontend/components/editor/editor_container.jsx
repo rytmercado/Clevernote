@@ -3,7 +3,6 @@ import Editor from "./editor";
 import { getNote, getNotes, patchNote } from "../../actions/note_actions"
 
 const mSTP = (state, ownProps) => {
-    console.log(ownProps.match.params.noteId);
     const note = state.entities.notes[ownProps.match.params.noteId];
     // console.log(note);
 

@@ -35,6 +35,8 @@
     margin-left: 10px;    
 }
 
+
+
 a.grey-hover:hover {
     background-color: #333333;
 }
@@ -52,7 +54,7 @@ a.grey-hover:hover {
 
 .note-index {
     width: 380px;
-    background-color: 	#262626;
+    background-color: 	#1A1A1A;
     border-right: 1px solid black;
     header {
         border-bottom: 1px solid #404040;
@@ -68,6 +70,7 @@ a.grey-hover:hover {
 
 .note-index-container {
     border-bottom: 1px solid #404040;
+    
 }
 
 .note-index-container:hover {
@@ -75,17 +78,45 @@ a.grey-hover:hover {
 }
 
 .notes-header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     height: 77px;
     padding-top: 18px;
     padding-left: 24px;
     padding-right: 16px;
-    font-size: 16px;
-    color: 	#d9d9d9;
+    font-size: 20px;
+    color: 	#d9d9d9;  
+    z-index: 100;
+    background-color: 	#1A1A1A;
+    
+}
+
+.selected-note {
+    background-color: #262626;
+    border: 2px solid #737373;
+
+}
+.notes-header-top {
+    display: flex;
+    padding-bottom: 5px;
+}
+#note-count {
+    color: #A6A6A6;
+    font-size: 14px;
+    text-rendering: optimizeLegibility;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+
+    
+}
+#note-fai-large {
+    padding-right: 4px;
+    padding-top: 6px;
 }
 
 .note-body {
     flex: 1 auto;
-    background-color: #333333;
+    background-color: #262626;
     color: white;
     input[type=text], textarea[type=text] {
         width: 100%;
@@ -95,7 +126,6 @@ a.grey-hover:hover {
 
 .title-field {
     height: 8vh;
-    border: 1px solid black;
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 24px;
@@ -103,12 +133,11 @@ a.grey-hover:hover {
 
 .body-field {
     height: 92vh;
-    border: 1px solid white;
     padding: 12px 40px 0px;
 }
 
 .note-index-item {
-    height: 77px;
+    height: 36px;
     padding-top: 18px;
     padding-left: 24px;
     padding-right: 16px;
@@ -116,12 +145,25 @@ a.grey-hover:hover {
     color: 	#d9d9d9;
 }
 
+.note-index-item-bottom {
+    padding-bottom: 18px;
+    padding-left: 24px;
+}
+
+.delete-note-container {
+    display: flex;
+    justify-content: end;
+    padding-right: 24px;
+    color: #737373;
+    // padding-bottom: 9px;
+}
+
 ::-webkit-scrollbar {
     width: 12px;               /* width of the entire scrollbar */
 }
   
 ::-webkit-scrollbar-track {
-    background: #262626;        /* color of the tracking area */
+    background: #1A1A1A;        /* color of the tracking area */
 }
   
 ::-webkit-scrollbar-thumb {
