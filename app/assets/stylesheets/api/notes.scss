@@ -69,7 +69,9 @@ a.grey-hover:hover {
 }
 
 .note-index-container {
-    border-bottom: 1px solid #404040;
+    border: 2px solid transparent;
+    // border-bottom: 1px solid transparent;
+    box-sizing: border-box;
     
 }
 
@@ -95,7 +97,7 @@ a.grey-hover:hover {
 .selected-note {
     background-color: #262626;
     border: 2px solid #737373;
-
+    
 }
 .notes-header-top {
     display: flex;
@@ -148,6 +150,7 @@ a.grey-hover:hover {
 .note-index-item-bottom {
     padding-bottom: 18px;
     padding-left: 24px;
+    border-bottom: 1px solid #404040;
 }
 
 .delete-note-container {
@@ -161,11 +164,11 @@ a.grey-hover:hover {
 ::-webkit-scrollbar {
     width: 12px;               /* width of the entire scrollbar */
 }
-  
+
 ::-webkit-scrollbar-track {
     background: #1A1A1A;        /* color of the tracking area */
 }
-  
+
 ::-webkit-scrollbar-thumb {
     background-color: #767676;    /* color of the scroll thumb */
     border-radius: 20px;       /* roundness of the scroll thumb */
