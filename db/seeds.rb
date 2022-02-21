@@ -10,8 +10,8 @@ User.destroy_all
 Note.destroy_all
 
 demouser = User.create(email: 'demo@clevernote.com', password: 'password')
-demonote = Note.create(title: 'Dave Matthews Band', body: 'is the best band!', user_id: demouser.id)
-demonote2 = Note.create(title: 'Homework', body: 'finish project', user_id: demouser.id)
-demonote3 = Note.create(title: 'chase your dreams, fool', body: 'life is short', user_id: demouser.id)
-demonote4 = Note.create(title: 'todo', body: 'clean, study, ski', user_id: demouser.id)
-demonote5 = Note.create(title: 'one last note', body: 'here it is', user_id: demouser.id)
+demonote = Note.create(title: 'Dave Matthews Band', body: 'is the best band!', user_id: demouser.id, notebook_id: 1)
+demonote2 = Note.create(title: 'Homework', body: 'finish project', user_id: demouser.id, notebook_id: 1)
+demonote3 = Note.create(title: 'chase your dreams, fool', body: 'life is short', user_id: demouser.id, notebook_id: 1)
+demonote4 = Note.create(title: 'todo', body: 'clean, study, ski', user_id: demouser.id, notebook_id: 1)
+demonote5 = Note.create(title: 'one last note', body: 'here it is', user_id: demouser.id, notebook_id: 1)

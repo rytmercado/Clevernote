@@ -12,25 +12,10 @@ const Notes = () => {
     return (
 
         <div className="home-container">
-            <Switch>
-                <Route component={NavbarSessionContainer}/>
-            </Switch>
-
+            <NavbarSessionContainer />
             <Route path="/notes" component={NotesIndexContainer}/>
             <Route path="/notes/:noteId" component={EditorContainer}/>
         </div>
-        // <div className="home-container">
-        //     <div className="nav-bar">
-        //         <NavbarSessionContainer />
-        //     </div>
-        //     <div className="note-index">
-        //         <NotesIndexContainer />
-        //     </div>
-        //     <div className="note-body">
-        //         <h1>Title</h1>
-        //         <p>Start writing here.</p>
-        //     </div>
-        // </div>
     )
 
 }
