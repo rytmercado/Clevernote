@@ -14,7 +14,7 @@ export default class NotesIndex extends React.Component {
         this.state = {
             activeWord: -1
         }
-        this.makeNewNote = this.makeNewNote.bind(this)
+        // this.makeNewNote = this.makeNewNote.bind(this)
         // this.selectedNote = this.selectedNote.bind(this)  
       }
 
@@ -22,9 +22,9 @@ export default class NotesIndex extends React.Component {
         this.props.getNotes();
     }
 
-    makeNewNote(){
-        this.props.postNote({title: 'Title', body: 'Start writing here...', user_id: this.props.currentUser.id })
-    }
+    // makeNewNote(){
+    //     this.props.postNote({title: 'Title', body: 'Start writing here...', user_id: this.props.currentUser.id, notebook_id: 1 })
+    // }
 
     selectedNote(idx){
         // set the state to only have a current word selection which will unselect the previous selection

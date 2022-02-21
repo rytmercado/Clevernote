@@ -9,6 +9,7 @@ export default class Editor extends React.Component {
             title: "",
             body: "",
             updated_at: "",
+            notebook_id: 1,
         }
     }
 

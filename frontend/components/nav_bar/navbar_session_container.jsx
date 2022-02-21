@@ -13,6 +13,8 @@ const mDTP = dispatch => {
     return {
     logout: () => dispatch(logout()),
     postNote: (note) => dispatch(postNote(note)),
+    
+    getNotebooks: () => dispatch(getNotebooks())
     }
 }
 
