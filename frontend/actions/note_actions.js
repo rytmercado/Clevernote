@@ -1,4 +1,4 @@
-import * as NoteApiUtil from '../util/note_api_util';
+import * as noteApiUtil from '../util/note_api_util';
 
 export const RECEIVE_NOTES = 'RECEIVE_NOTES';
 export const RECEIVE_NOTE = 'RECEIVE_NOTE';
@@ -20,26 +20,26 @@ const removeNote = ({id}) => ({
 });
 
 export const getNotes = () => dispatch => (
-    NoteApiUtil.getNotes()
+    noteApiUtil.getNotes()
         .then(notes => dispatch(receiveNotes(notes)))
 );
 
 export const getNote = noteId => dispatch => (
-    NoteApiUtil.getNote(noteId)
+    noteApiUtil.getNote(noteId)
         .then(note => dispatch(receiveNote(note)))
 );
 
 export const postNote = note => dispatch => (
-    NoteApiUtil.postNote(note)
+    noteApiUtil.postNote(note)
         .then(note => dispatch(receiveNote(note)))
 );
 
 export const patchNote = note => dispatch => (
-    NoteApiUtil.patchNote(note)
+    noteApiUtil.patchNote(note)
         .then(note => dispatch(receiveNote(note)))
 );
 
 export const deleteNote = noteId => dispatch => (
-    NoteApiUtil.deleteNote(noteId)
+    noteApiUtil.deleteNote(noteId)
         .then(noteId => dispatch(removeNote(noteId)))
 )
