@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from './store/store';
 import Root from './components/root';
+import * as notebookApiUtil from './util/notebook_api_util'
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
@@ -27,5 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
+    window.notebookApiUtil = notebookApiUtil;
     ReactDOM.render(<Root store={store} />, root);
 })
