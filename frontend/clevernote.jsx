@@ -28,6 +28,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    window.notebookApiUtil = notebookApiUtil;
     ReactDOM.render(<Root store={store} />, root);
 })
