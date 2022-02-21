@@ -38,4 +38,8 @@ class User < ApplicationRecord
     has_many :notes,
         foreign_key: :user_id,
         class_name: :Note
+
+    has_many :notebooks,
+        foreign_key: :user_id,
+        class_name: :Notebook
 end
