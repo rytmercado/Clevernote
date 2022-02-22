@@ -23,7 +23,7 @@ export default class NavbarSession extends React.Component {
                             <a id='new-note-button-text'>New</a></button>
                         <Link className='grey-hover' to="/notes">Notes</Link>
                         <Link className='grey-hover' to="/notes">Tags</Link>
-                        <Link className='grey-hover' to="/notes">Notebooks</Link>
+                        <Link className='grey-hover' to="/notebooks">Notebooks</Link>
                     </nav>
                 </div>
             </div>

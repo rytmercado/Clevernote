@@ -17,10 +17,10 @@ export default class NotesIndex extends React.Component {
         // this.makeNewNote = this.makeNewNote.bind(this)
         // this.selectedNote = this.selectedNote.bind(this)  
       }
+      componentDidMount(){
+          this.props.getNotes();
+      }
 
-    componentDidMount(){
-        this.props.getNotes();
-    }
 
     // makeNewNote(){
     //     this.props.postNote({title: 'Title', body: 'Start writing here...', user_id: this.props.currentUser.id, notebook_id: 1 })
