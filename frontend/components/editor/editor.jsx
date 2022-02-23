@@ -1,4 +1,7 @@
 import React from "react";
+import ReactQuill, { Quill } from "react-quill";
+// import 'react-quill/dist/quill.snow.css';
+
 
 export default class Editor extends React.Component {
     constructor(props) {
@@ -9,8 +12,10 @@ export default class Editor extends React.Component {
             title: "",
             body: "",
             updated_at: "",
-            notebook_id: 1,
+            notebook_id: 3,
         }
+
+        this.handleQuillUpdate = this.handleQuillUpdate.bind(this);
     }
 
     handleInput(type) {
@@ -30,6 +35,11 @@ export default class Editor extends React.Component {
             this.setState(this.props.note);
         }
     }
+
+    handleQuillUpdate(text) {
+        this.setState({body: text}, () => this.props.patchNote(this.state))
+    }
+
     render(){
         if(!this.props.note) {
             return null;
@@ -44,14 +54,49 @@ export default class Editor extends React.Component {
                         value={this.state.title}
                         onChange={this.handleInput('title')}
                         />
-                    <textarea
+                        <ReactQuill theme="snow" placeholder="Start writing here..." value={this.state.body} onChange={this.handleQuillUpdate} modules={quillModules} formats={quillFormats} />
+
+                    {/* <div
                         className="body-field"
                         type="text"
                         value={this.state.body}
                         onChange={this.handleInput('body')}
-                        />
+                        ></div> */}
+
                 </form>
             </div>
         )
     }
 }
+
+const quillModules = {
+    toolbar: [
+        [{header: "1"}, {header: "2"}, {header: [3,4,5,6]}, {font: []}],
+        [{size: []}],
+        ["bold", "italic", "underline", "strike", "blockquote"],
+        [{'color':['#000000', '#FFFFFF', '#FF0000', '#00FF00',
+                    '#0000FF', '#FFFF00', '#00FFFF', '#FF00FF',
+                    '#C0C0C0', '#808080', '#800000', '#808000', 
+                    '#008000', '#800080', '#008080', '	#000080']}],
+        [{list: "ordered"}, {list: "bullet"}],
+        ["link", "image", "video"],
+        ["clean"],
+        ["code-block"]
+    ]
+};
+
+const quillFormats = [
+    "header",
+    "font",
+    "size",
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "blockquote",
+    "color",
+    "list",
+    "image",
+    "video",
+    "code-block",
+];

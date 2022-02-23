@@ -28,7 +28,6 @@ export default class NotesIndex extends React.Component {
 
     selectedNote(idx){
         // set the state to only have a current word selection which will unselect the previous selection
-        console.log(idx)
         this.setState({activeWord: idx})
     }
 
