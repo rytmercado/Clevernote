@@ -3,9 +3,11 @@ import { logout } from "../../actions/session_actions";
 import NavbarSession from './navbar_session'
 import { postNote } from "../../actions/note_actions";
 
-const mSTP = ({ session, entities: {users}}) => {
+const mSTP = ({ session, entities: {users, notebooks}}) => {
+    console.log(notebooks)
     return {
-        currentUser: users[session.id]
+        currentUser: users[session.id],
+        notebooks: Object.values(notebooks),
     }
 }
 

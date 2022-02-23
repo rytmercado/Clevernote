@@ -1,6 +1,6 @@
 class Notebook < ApplicationRecord
     validates :user_id, :subject, presence: true
-    validates :name, uniqueness: {scope: :user_id}
+    validates :subject, uniqueness: {scope: :user_id}
 
     belongs_to :user,
         foreign_key: :user_id,

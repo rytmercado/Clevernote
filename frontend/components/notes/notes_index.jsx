@@ -18,6 +18,7 @@ export default class NotesIndex extends React.Component {
         // this.selectedNote = this.selectedNote.bind(this)  
       }
       componentDidMount(){
+          this.props.getNotebooks();
           this.props.getNotes();
       }
 

@@ -6,6 +6,7 @@ class User < ApplicationRecord
     attr_reader :password
 
     after_initialize :ensure_session_token
+    after_create :create_notebook
 
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
@@ -33,6 +34,11 @@ class User < ApplicationRecord
 
     def ensure_session_token
         self.session_token ||= SecureRandom::urlsafe_base64
+    end
+
+    def create_notebook
+        notebook = Notebook.new({subject: 'my first notebook', user_id: self.id})
+        notebook.save
     end
 
     has_many :notes,

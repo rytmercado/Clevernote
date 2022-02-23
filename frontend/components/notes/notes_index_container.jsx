@@ -19,6 +19,7 @@ const mDTP = dispatch => ({
     getNotes: () => dispatch(getNotes()),
     postNote: (note) => dispatch(postNote(note)),
     deleteNote: (noteId) => dispatch(deleteNote(noteId)),
+    getNotebooks: () => dispatch(getNotebooks())
 })
 
 export default withRouter(connect(mSTP, mDTP)(NotesIndex));

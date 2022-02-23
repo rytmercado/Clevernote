@@ -26,6 +26,7 @@ export default class Editor extends React.Component {
       }
       
     componentDidMount(){
+        this.props.getNotebooks()
         this.props.getNotes()
             .then((res) => {this.setState(this.props.note)});
     }
