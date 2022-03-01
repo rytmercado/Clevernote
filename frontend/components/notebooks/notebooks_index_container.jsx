@@ -5,8 +5,7 @@ import { withRouter } from 'react-router-dom';
 import NotebooksIndex from './notebooks_index';
 
 const mSTP = (state) => {
-    console.log(state.entities.users)
-    console.log(state.session.id)
+
     return {
         notebooks: Object.values(state.entities.notebooks),
         currentUser: state.entities.users[state.session.id]

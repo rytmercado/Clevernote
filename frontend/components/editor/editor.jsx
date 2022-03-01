@@ -12,7 +12,7 @@ export default class Editor extends React.Component {
             title: "",
             body: "",
             updated_at: "",
-            notebook_id: 3,
+            notebook_id: null,
         }
 
         this.handleQuillUpdate = this.handleQuillUpdate.bind(this);
