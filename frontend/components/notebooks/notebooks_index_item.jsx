@@ -56,7 +56,7 @@ export default class NotebookIndexItem extends React.Component {
                             </td>
                             <td>{userEmail}</td>
                             <td>{note.updated_at}</td>
-                            <td onClick={() => this.props.deleteNote(note.id).then(() => this.props.getNotebooks()).then(() => console.log('success'))}>Delete</td>
+                            <td onClick={() => this.props.deleteNote(note.id).then(() => this.props.getNotebooks())}>Delete</td>
                         </tr>
 
                     )

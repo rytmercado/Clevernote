@@ -13,8 +13,8 @@ const mSTP = (state) => {
 const mDTP = dispatch => ({
     deleteNotebook: (notebookId) => dispatch(deleteNotebook(notebookId)),
     deleteNote: (noteId) => dispatch(deleteNote(noteId)),
-    getNotebooks: () => dispatch(getNotebooks),
-    getNotes: () => dispatch(getNotes)
+    getNotebooks: () => dispatch(getNotebooks()),
+    getNotes: () => dispatch(getNotes())
 })
 
 export default withRouter(connect(mSTP, mDTP)(NotebookIndexItem))
