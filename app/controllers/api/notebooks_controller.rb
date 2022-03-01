@@ -36,7 +36,7 @@ class Api::NotebooksController < ApplicationController
         @notebook = Notebook.find_by(id: params[:id])
 
         
-        if ((@notebook.id != 1) && (@notebook.destroy))
+        if @notebook.destroy
             render :show
         else
             render json: @notebook.errors.full_messages, status: 422

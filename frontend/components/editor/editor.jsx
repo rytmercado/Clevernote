@@ -54,16 +54,15 @@ export default class Editor extends React.Component {
                         type="text"
                         value={this.state.title}
                         onChange={this.handleInput('title')}
-                        />
-                        <ReactQuill theme="snow" placeholder="Start writing here..." value={this.state.body} onChange={this.handleQuillUpdate} modules={quillModules} formats={quillFormats} />
-
-                    {/* <div
-                        className="body-field"
-                        type="text"
-                        value={this.state.body}
-                        onChange={this.handleInput('body')}
-                        ></div> */}
-
+                    />
+                    <ReactQuill 
+                        theme="snow" 
+                        placeholder="Start writing here..." 
+                        value={this.state.body} 
+                        onChange={this.handleQuillUpdate} 
+                        modules={quillModules} 
+                        formats={quillFormats}
+                    />
                 </form>
             </div>
         )
