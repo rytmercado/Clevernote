@@ -16,7 +16,7 @@ const App = () => (
       <AuthRoute path="/login" component={LoginContainer} />
       <Route path="/" component={Splash} />
     </Switch>
-  </div>
+ </div>
 );
 
 export default App;

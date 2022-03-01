@@ -17,3 +17,5 @@ demonote2 = Note.create(title: 'Homework', body: 'finish project', user_id: demo
 demonote3 = Note.create(title: 'chase your dreams, fool', body: 'life is short', user_id: demouser.id, notebook_id: demouser.notebooks.first.id)
 demonote4 = Note.create(title: 'todo', body: 'clean, study, ski', user_id: demouser.id, notebook_id: demouser.notebooks.first.id)
 demonote5 = Note.create(title: 'one last note', body: 'here it is', user_id: demouser.id, notebook_id: demouser.notebooks.first.id)
+demonotebook2 = Notebook.create(subject: 'Notebook_2', user_id: demouser.id)
+demonote5 = Note.create(title: 'second notebook tester', body: 'does it work?', user_id: demouser.id, notebook_id: demonotebook2.id)
