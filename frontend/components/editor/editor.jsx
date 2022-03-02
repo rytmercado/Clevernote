@@ -1,5 +1,6 @@
 import React from "react";
 import ReactQuill, { Quill } from "react-quill";
+import NotebookDropdown from "../notebooks/notebook_dropdown";
 // import 'react-quill/dist/quill.snow.css';
 
 
@@ -16,10 +17,13 @@ export default class Editor extends React.Component {
         }
 
         this.handleQuillUpdate = this.handleQuillUpdate.bind(this);
+        this.handleInput = this.handleInput.bind(this)
     }
 
     handleInput(type) {
+        // console.log(this.state)
         return e => {
+            console.log(e)
             this.setState({[type]: e.currentTarget.value}
                 , () => {this.props.patchNote(this.state)})
         }
@@ -45,10 +49,12 @@ export default class Editor extends React.Component {
         if(!this.props.note) {
             return null;
         } 
+        console.log(this.props.notebooks)
 
         return(
             <div className="note-body">
                 <form>
+                    <NotebookDropdown notebook={this.props.notebooks[this.state.notebook_id]} notebooks={this.props.notebooks} handleInput={this.handleInput} />
                     <input
                         className="title-field"
                         type="text"
