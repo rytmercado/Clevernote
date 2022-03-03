@@ -1,17 +1,17 @@
 import React from 'react';
 
-const NotebookDropdown = ({ notebook, notebooks, handleInput }) => {
-    console.log(notebook)
+const NotebookDropdown = ({ note, notebooks, handleInput }) => {
+    // debugger
+    // let notebook = notebooks[note.notebook_id]
     return (
         <div className="dropdown">
-            <button className="dropbtn">Notebook</button>
-            <div className="dropdown-content">
-                {Object.values(notebooks).map(notebook => {
+            <select value={note.subject} onChange={handleInput('notebook_id')}>
+                {Object.values(notebooks).map(nb => {
                     return (
-                        <option color='black' key={notebook.id} value={notebook.id} onClick={handleInput('notebook_id')}>{notebook.id}</option>
+                        <option color='black' key={nb.id} value={nb.id}>{nb.subject}</option>
                     )
                 })}
-            </div>
+            </select>
         </div>
 
     )

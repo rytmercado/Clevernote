@@ -22,8 +22,8 @@ export default class Editor extends React.Component {
 
     handleInput(type) {
         // console.log(this.state)
+        debugger
         return e => {
-            console.log(e)
             this.setState({[type]: e.currentTarget.value}
                 , () => {this.props.patchNote(this.state)})
         }
@@ -49,12 +49,15 @@ export default class Editor extends React.Component {
         if(!this.props.note) {
             return null;
         } 
+        // console.log(this.props.notebooks)
+        // console.log(this.props.notebooks[this.props.note.notebook_id])
+        console.log(this.props.note)
         console.log(this.props.notebooks)
 
         return(
             <div className="note-body">
                 <form>
-                    <NotebookDropdown notebook={this.props.notebooks[this.state.notebook_id]} notebooks={this.props.notebooks} handleInput={this.handleInput} />
+                    <NotebookDropdown note={this.props.notebooks[this.props.note.notebook_id]} notebooks={this.props.notebooks} handleInput={this.handleInput} />
                     <input
                         className="title-field"
                         type="text"
