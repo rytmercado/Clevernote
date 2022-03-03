@@ -27,8 +27,16 @@ class NewNotebookForm extends React.Component {
       render(){
           return(
               <>
+              <h1>
+                  Create new notebook
+              </h1>
+              <br/>
+              <p>Notebooks are useful for grouping notes around a common topic.</p>
+              <br/>
 
                 <form>
+                <label>Name</label>
+                    <br/>
                     <input
                         // className="title-field"
                         type="text"
@@ -36,9 +44,14 @@ class NewNotebookForm extends React.Component {
                         onChange={this.handleInput('subject')}
                     />
                 </form>
-                <button onClick={() => this.makeNewNotebook()}>
-                    Make Notebook
-                </button>
+                <div className='flex-bottom-right'>
+                    <button onClick={() => this.makeNewNotebook()}>
+                        Make Notebook
+                    </button>
+                    <button type="button" onClick={() => this.props.handleClose()}>
+                        Cancel
+                    </button>
+                </div>
               </>
           )
       }

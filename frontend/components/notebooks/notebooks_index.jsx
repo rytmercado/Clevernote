@@ -1,6 +1,6 @@
 import React from 'react'
 import NotebookIndexItem from './notebooks_index_item_container';
-import Modal from '../session_modal/session_modal';
+import Modal from '../modal/modal';
 import NewNotebookForm from './new_notebook_form_container';
 
 export default class NotebooksIndex extends React.Component {
