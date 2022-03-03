@@ -10,6 +10,7 @@ const Modal = ({ handleClose, show, children }) => {
 
         </section>
       </div>
+      
     );
   };
 
