@@ -57,7 +57,7 @@ export default class Editor extends React.Component {
         return(
             <div className="note-body">
                 <form>
-                    <NotebookDropdown note={this.props.notebooks[this.props.note.notebook_id]} notebooks={this.props.notebooks} handleInput={this.handleInput} />
+                    <NotebookDropdown note={this.props.note} notebooks={this.props.notebooks} handleInput={this.handleInput} />
                     <input
                         className="title-field"
                         type="text"
