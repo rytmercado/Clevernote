@@ -46,7 +46,7 @@ export default class NotebookIndexItem extends React.Component {
                     <td onClick={() => this.props.deleteNotebook(notebook.id)}>Delete</td>
                 </tr>
                 {notebook.notes.map((note) => {
-                    let url = `/notes/${note.id}`
+                    let url = `/notebooks/${note.notebook_id}/${note.id}`
                     {/* console.log(this.props.currentUser) */}
                     return(
 

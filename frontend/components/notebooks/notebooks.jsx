@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import NavbarSessionContainer from '../nav_bar/navbar_session_container'
 import NotebooksIndexContainer from './notebooks_index_container'
 import NotesIndexContainer from '../notes/notes_index_container'
+import EditorContainer from '../editor/editor_container'
 
 const Notebooks = () => {
     return (
@@ -10,6 +11,7 @@ const Notebooks = () => {
             <NavbarSessionContainer />
             <Route exact path="/notebooks" component={NotebooksIndexContainer}/>
             <Route path="/notebooks/:notebookId" component={NotesIndexContainer}/>
+            <Route path="/notebooks/:notebookId/:noteId" component={EditorContainer}/>
         </div>
     )
 }
