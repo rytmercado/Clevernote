@@ -22,7 +22,7 @@ export default class Editor extends React.Component {
 
     handleInput(type) {
         // console.log(this.state)
-        debugger
+        
         return e => {
             this.setState({[type]: e.currentTarget.value}
                 , () => {this.props.patchNote(this.state)})
