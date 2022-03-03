@@ -15,6 +15,7 @@ const Notes = () => {
             <NavbarSessionContainer />
             <Route path="/notes" component={NotesIndexContainer}/>
             <Route path="/notes/:noteId" component={EditorContainer}/>
+            
         </div>
     )
 

@@ -49,11 +49,6 @@ export default class Editor extends React.Component {
         if(!this.props.note) {
             return null;
         } 
-        // console.log(this.props.notebooks)
-        // console.log(this.props.notebooks[this.props.note.notebook_id])
-        console.log(this.props.note)
-        console.log(this.props.notebooks)
-
         return(
             <div className="note-body">
                 <form>

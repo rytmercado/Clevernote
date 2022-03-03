@@ -13,66 +13,62 @@ export default class NotesIndex extends React.Component {
         super(props);
         this.state = {
             activeWord: -1
-        }
-        // this.makeNewNote = this.makeNewNote.bind(this)
-        // this.selectedNote = this.selectedNote.bind(this)  
-      }
-      componentDidMount(){
-          this.props.getNotebooks();
-          this.props.getNotes();
-      }
-
-
-    // makeNewNote(){
-    //     this.props.postNote({title: 'Title', body: 'Start writing here...', user_id: this.props.currentUser.id, notebook_id: 1 })
-    // }
+            }
+    }
+    
+    componentDidMount(){
+        this.props.getNotebooks();
+        this.props.getNotes();
+    }
 
     selectedNote(idx){
-        // set the state to only have a current word selection which will unselect the previous selection
+    
         this.setState({activeWord: idx})
     }
 
-    // componentDidUpdate(prevProps){
-    //     if((this.props.noteId !== prevProps.noteId)) {
-    //         console.log(this.props.note)
-    //         this.setState(this.props.note);
-    //     }
-    // }
-
     render() {
+        let header = 'Notes'
+        let notes_filtered = this.props.notes
+        if (this.props.notebook) {
+            header = this.props.notebook.subject
+            notes_filtered = this.props.notes.filter(note => note.notebook_id === this.props.notebook.id)
+        }
         return(
             <div className="note-index">
                 <header className="notes-header">
                     <div className='notes-header-top'>
                         <FontAwesomeIcon id="note-fai-large" icon={faNoteSticky} />
-                        <h1 id="notes-header-fix">Notes</h1>
+                        <h1 id="notes-header-fix">{header}</h1>
                     </div>
-                    <a id='note-count'>{this.props.notes.length + ' notes'}</a>
+                    <a id='note-count'>{notes_filtered.length + ' notes'}</a>
                 </header>
                 <div className="note-index-scroll">
                     <ul >
-                        {this.props.notes.map(note => {
-                            let url = `/notes/${note.id}`
-                            return(
-                                <div className={`note-index-container${this.state.activeWord === note.id ? ' selected-note' : ''}`} onClick={() => this.selectedNote(note.id)} key={note.id} >
-                                    <Link to={url} >
-                                        <li  className="note-index-item" >{note.title}</li>
-                                        <div className="delete-note-container">
+                        {notes_filtered.map(note => {
+                        let url = `/notes/${note.id}`
+                        return(
+                            <div 
+                                className={`note-index-container${this.state.activeWord === note.id ? ' selected-note' : ''}`} 
+                                onClick={() => this.selectedNote(note.id)} 
+                                key={note.id} >
+                                <Link to={url} >
+                                    <li  className="note-index-item" >{note.title}</li>
+                                    <div className="delete-note-container">
 
-                                            <FontAwesomeIcon onClick={() => this.props.deleteNote(note.id)} icon={faTrash} />
-                                        </div>
-                                        <div className="note-index-item-bottom">
-                                            <span id='note-count'>{'last updated ' + timeSince(note.updated_at) + ' ago'}</span>
-                                        </div>
-                                    </Link>
-                                </div>
-                            )
-                            })
+                                        <FontAwesomeIcon onClick={() => this.props.deleteNote(note.id)} icon={faTrash} />
+                                    </div>
+                                    <div className="note-index-item-bottom">
+                                        <span id='note-count'>{'last updated ' + timeSince(note.updated_at) + ' ago'}</span>
+                                    </div>
+                                </Link>
+                            </div>
+                        )
+                        })
                         }
                     </ul>
                 </div>
             </div>
-            
+
         )
+        }
     }
-}

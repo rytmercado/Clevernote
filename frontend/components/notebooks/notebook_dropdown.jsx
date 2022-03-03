@@ -8,7 +8,6 @@ const NotebookDropdown = ({ note, notebooks, handleInput }) => {
             <select onChange={handleInput('notebook_id')}>
                 {Object.values(notebooks).map(nb => {
                     if (nb == notebook) {
-                        console.log(nb.id)
                        return (
                           <option color='black' key={nb.id} value={nb.id} selected>{nb.subject}</option>
                               )

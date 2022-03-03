@@ -31,12 +31,16 @@ export default class NotebookIndexItem extends React.Component {
     render() {
         const notebook = this.props.notebook;
         const userEmail = this.props.currentUser.email
+        let notebookUrl = `/notebooks/${notebook.id}`
         return (
             <>
                 <tr>
                     <td onClick={() => this.handleExpand()}>{this.state.expanded ? '⮟' : '⮞'}
                     </td>
-                    <td>{notebook.subject}</td>
+                    <td><Link to={notebookUrl}>{notebook.subject}
+
+                    </Link>
+                    </td>
                     <td>{userEmail}</td>
                     <td>{timeSince(notebook.updated_at) + ' ago'}</td>
                     <td onClick={() => this.props.deleteNotebook(notebook.id)}>Delete</td>
