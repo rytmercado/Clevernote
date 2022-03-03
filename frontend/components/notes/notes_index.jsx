@@ -26,26 +26,41 @@ export default class NotesIndex extends React.Component {
         this.setState({activeWord: idx})
     }
 
-    render() {
+    noteIndexHeader(l){
         let header = 'Notes'
         let notes_filtered = this.props.notes
         if (this.props.notebook) {
             header = this.props.notebook.subject
             notes_filtered = this.props.notes.filter(note => note.notebook_id === this.props.notebook.id)
         }
-        return(
-            <div className="note-index">
-                <header className="notes-header">
+        return (
+            <header className="notes-header">
                     <div className='notes-header-top'>
                         <FontAwesomeIcon id="note-fai-large" icon={faNoteSticky} />
                         <h1 id="notes-header-fix">{header}</h1>
                     </div>
-                    <a id='note-count'>{notes_filtered.length + ' notes'}</a>
+                    <a id='note-count'>{l + ' notes'}</a>
                 </header>
+        )
+    }
+
+    noteIndex(){
+
+        let notes_filtered = this.props.notes
+        if (this.props.notebook) {
+            notes_filtered = this.props.notes.filter(note => note.notebook_id === this.props.notebook.id)
+        }
+        return(
+            <div className="note-index">
+                {this.noteIndexHeader(notes_filtered.length)}
                 <div className="note-index-scroll">
                     <ul >
                         {notes_filtered.map(note => {
-                        let url = `/notes/${note.id}`
+                    let url = `/notes/${note.id}`
+                    if (this.props.notebook) {
+                        url = `/notebooks/${this.props.notebook.id}/${note.id}`
+                    }
+                        
                         return(
                             <div 
                                 className={`note-index-container${this.state.activeWord === note.id ? ' selected-note' : ''}`} 
@@ -68,7 +83,15 @@ export default class NotesIndex extends React.Component {
                     </ul>
                 </div>
             </div>
+        )
+    }
+    render() {
+   
+        return(
+            <>
 
+                {this.noteIndex()}
+            </>
         )
         }
     }
