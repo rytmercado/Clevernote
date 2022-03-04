@@ -7,7 +7,7 @@ const NotebookDropdown = ({ note, notebooks, handleInput }) => {
 
         notebook = notebooks[note.notebook_id]
     } else {
-        notebook = {}
+        notebook = {id: null}
     }
     return (
         <div className="dropdown">

@@ -25,7 +25,13 @@ export default class Editor extends React.Component {
         
         return e => {
             this.setState({[type]: e.currentTarget.value}
-                , () => {this.props.patchNote(this.state)})
+                , () => {
+                    this.props.patchNote(this.state)
+                    if(type === 'notebook_id') {
+                        this.props.history.push(`/notebooks/${this.state.notebook_id}/${this.state.id}`)
+                    }
+
+                })
         }
       }
       
