@@ -64,8 +64,8 @@ export default class NotesIndex extends React.Component {
         )
     }
 
-    noteIndex(){
-
+    render() {
+   
         let notesFiltered = this.props.notes;
         if (this.props.notebook) {
             notesFiltered = this.props.notes.filter(note => note.notebook_id === this.props.notebook.id)
@@ -115,15 +115,6 @@ export default class NotesIndex extends React.Component {
                     </ul>
                 </div>
             </div>
-        )
-    }
-    render() {
-   
-        return(
-            <>
-
-                {this.noteIndex()}
-            </>
         )
         }
     }

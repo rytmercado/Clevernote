@@ -2,7 +2,13 @@ import React from 'react';
 
 const NotebookDropdown = ({ note, notebooks, handleInput }) => {
     // debugger
-    let notebook = notebooks[note.notebook_id]
+    let notebook
+    if (notebooks) {
+
+        notebook = notebooks[note.notebook_id]
+    } else {
+        notebook = {}
+    }
     return (
         <div className="dropdown">
             <select value={notebook.id} onChange={handleInput('notebook_id')}>
