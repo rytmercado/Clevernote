@@ -26,12 +26,32 @@ export default class NotesIndex extends React.Component {
         this.setState({activeWord: idx})
     }
 
+    makeNewNoteButton(){
+        let nbId
+        if (this.props.notebook) {
+            nbId = this.props.notebook.id
+        } else if (this.props.notebooks[0]) {
+            nbId = this.props.notebooks[0].id
+        } 
+        return (
+            <button onClick={() => this.props.postNote(
+               {
+                title: 'Title',
+                body: '',
+                user_id: this.props.currentUser.id,
+                notebook_id: nbId
+               }
+            ).then(() => this.props.getNotes())}>New Note</button>
+
+        )
+    }
+
     noteIndexHeader(l){
         let header = 'Notes'
-        let notes_filtered = this.props.notes
+        let notesFiltered = this.props.notes
         if (this.props.notebook) {
             header = this.props.notebook.subject
-            notes_filtered = this.props.notes.filter(note => note.notebook_id === this.props.notebook.id)
+            notesFiltered = this.props.notes.filter(note => note.notebook_id === this.props.notebook.id)
         }
         return (
             <header className="notes-header">
@@ -46,18 +66,30 @@ export default class NotesIndex extends React.Component {
 
     noteIndex(){
 
-        let notes_filtered = this.props.notes
+        let notesFiltered = this.props.notes;
         if (this.props.notebook) {
-            notes_filtered = this.props.notes.filter(note => note.notebook_id === this.props.notebook.id)
+            notesFiltered = this.props.notes.filter(note => note.notebook_id === this.props.notebook.id)
+        }
+
+        if (notesFiltered.length === 0) {
+            return (
+            <div className="note-index">
+                {this.noteIndexHeader(notesFiltered.length)}
+                <div className="note-index-scroll">
+                    {this.makeNewNoteButton()}
+                </div>
+            </div>)
+        } else {
+
         }
         return(
             <div className="note-index">
-                {this.noteIndexHeader(notes_filtered.length)}
+                {this.noteIndexHeader(notesFiltered.length)}
                 <div className="note-index-scroll">
                     <ul >
-                        {notes_filtered.map(note => {
-                    let url = `/notes/${note.id}`
-                    if (this.props.notebook) {
+                        {notesFiltered.map(note => {
+                        let url = `/notes/${note.id}`
+                        if (this.props.notebook) {
                         url = `/notebooks/${this.props.notebook.id}/${note.id}`
                     }
                         

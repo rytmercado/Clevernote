@@ -17,9 +17,12 @@ demonote2 = Note.create(title: 'Homework', body: 'finish project', user_id: demo
 demonote3 = Note.create(title: 'chase your dreams, fool', body: 'life is short', user_id: demouser.id, notebook_id: demouser.notebooks.first.id)
 demonote4 = Note.create(title: 'todo', body: 'clean, study, ski', user_id: demouser.id, notebook_id: demouser.notebooks.first.id)
 demonote5 = Note.create(title: 'one last note', body: 'here it is', user_id: demouser.id, notebook_id: demouser.notebooks.first.id)
-demonotebook2 = Notebook.create(subject: 'Notebook_2', user_id: demouser.id)
-demonote5 = Note.create(title: 'second notebook tester', body: 'does it work?', user_id: demouser.id, notebook_id: demonotebook2.id)
+demonotebook2 = Notebook.create(subject: 'Clevernote Todos', user_id: demouser.id)
+demonote5 = Note.create(title: 'Styling', body: 'New note button, session modals,', user_id: demouser.id, notebook_id: demonotebook2.id)
+demonote6 = Note.create(title: 'Back End', body: 'Tags, Note Tags tables', user_id: demouser.id, notebook_id: demonotebook2.id)
+demonote7 = Note.create(title: 'Testing', body: 'more content here...', user_id: demouser.id, notebook_id: demonotebook2.id)
+
 demonotebook3 = Notebook.create(subject: 'Notebook_3', user_id: demouser.id)
 demonotebook4 = Notebook.create(subject: 'Notebook_4', user_id: demouser.id)
-demonotebook5 = Notebook.create(subject: 'Notebook_5', user_id: demouser.id)
-demonotebook6 = Notebook.create(subject: 'Notebook_6', user_id: demouser.id)
+
+
