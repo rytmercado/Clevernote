@@ -4,6 +4,7 @@ class Api::NotesController < ApplicationController
     def index
         if(current_user)
             @notes = current_user.notes
+            p @notes
             render :index
         else 
             render json: @note.error.full_messages, status: 420
