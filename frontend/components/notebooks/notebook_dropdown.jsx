@@ -3,11 +3,13 @@ import React from 'react';
 const NotebookDropdown = ({ note, notebooks, handleInput }) => {
     // debugger
     let notebook
-    if (notebooks) {
+    console.log(notebooks)
+    if (Object.values(notebooks).length !== 0) {
 
         notebook = notebooks[note.notebook_id]
     } else {
-        notebook = {id: null}
+        notebook = '';
+        console.log(notebook);
     }
     return (
         <div className="dropdown">
