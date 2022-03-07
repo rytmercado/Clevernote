@@ -53,8 +53,10 @@
   .flex-bottom-right {
     display: flex;
     height: 60%;
+    justify-content: flex-end;
+    align-items: flex-end;
     button {
-      align-items: flex-end;
-      vertical-align: bottom;
+      width: 100px;
+      height: 50px;
     }
   }
