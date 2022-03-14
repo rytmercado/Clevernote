@@ -26,7 +26,7 @@ class Api::TagsController < ApplicationController
     end
 
     def update
-        @tag = Note.find_by(id: params[:tag][:id])
+        @tag = Tag.find_by(id: params[:id])
 
         if @tag.update(tag_params)
             render :show
