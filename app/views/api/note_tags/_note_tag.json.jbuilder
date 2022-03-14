@@ -1,0 +1,1 @@
+json.extract! note_tag, :id, :tag_id, :note_id, :created_at, :updated_at
