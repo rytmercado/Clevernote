@@ -48,4 +48,8 @@ class User < ApplicationRecord
     has_many :notebooks,
         foreign_key: :user_id,
         class_name: :Notebook
+
+    has_many :tags,
+        foreign_key: :user_id,
+        class_name: :Tag
 end
