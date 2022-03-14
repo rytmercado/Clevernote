@@ -12,19 +12,19 @@ export const getNoteTag = noteTagId => (
     })
 );
 
-export const postNoteTag = noteTag => (
+export const postNoteTag = note_tag => (
     $.ajax({
         url: 'api/note_tags',
         method: 'POST',
-        data: { noteTag }
+        data: { note_tag }
     })
 );
 
-export const patchNoteTag = noteTag => (
+export const patchNoteTag = note_tag => (
     $.ajax({
-        url: `api/note_tags/${noteTag.id}`,
+        url: `api/note_tags/${note_tag.id}`,
         method: 'PATCH',
-        data: { noteTag }
+        data: { note_tag }
     })
 );
 

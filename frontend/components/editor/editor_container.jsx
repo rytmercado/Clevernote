@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import Editor from "./editor";
 import { getNote, getNotes, patchNote } from "../../actions/note_actions"
+import { getNotebooks } from "../../actions/notebook_actions";
 
 
 const mSTP = (state, ownProps) => {
