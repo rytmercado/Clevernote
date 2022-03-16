@@ -48,16 +48,14 @@ export default class NotesIndex extends React.Component {
 
     noteIndexHeader(l){
         let header = 'Notes'
-        let notesFiltered = this.props.notes
         if (this.props.notebook) {
             header = this.props.notebook.subject
-            notesFiltered = this.props.notes.filter(note => note.notebook_id === this.props.notebook.id)
         }
         return (
             <header className="notes-header">
                     <div className='notes-header-top'>
                         <FontAwesomeIcon id="note-fai-large" icon={faNoteSticky} />
-                        <h1 id="notes-header-fix">{header}</h1>
+                        <h1>{header}</h1>
                     </div>
                     <a id='note-count'>{l + ' notes'}</a>
                 </header>
