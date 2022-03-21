@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 
 
@@ -59,26 +60,30 @@ class Signup extends React.Component {
         return (
             <div className="sessionform">
                 <div className="formcontainer">
-                <img className="sessionlogo" src={window.logo}></img>
+                <Link to='/' >
+                 <img className="sessionlogo" src={window.logo}></img>
+                </Link>
                 <h2>Clevernote</h2>
+                <p>Remember everything important.</p>
+                <br/>
                     <div className="errors">{this.renderErrors()}</div>
                     <form>
-                        <label>Email:
                             <input
+                                placeholder="Email"
                                 type="text"
                                 value={this.state.email}
                                 onChange={this.handleInput('email')}
                             />
-                        </label>
-                        <label>Password:
                             <input
+                                placeholder="Password"
                                 type="password"
                                 value={this.state.password}
                                 onChange={this.handleInput('password')}
                             />
-                        </label>
-                        <button onClick={this.handleSubmit}>Sign Up</button>
-                        <button onClick={this.demoLogin}>Demo Log In</button>
+                        <button className='session-button' onClick={this.handleSubmit}>Sign Up</button>
+                        <button className='session-button' onClick={this.demoLogin}>Demo Log In</button>
+                        <p className='light-grey-text' >Already have an account?</p>
+                        <Link className='light-green-text' to='/login'>Login</Link>
                     </form>
                 </div>
             </div>

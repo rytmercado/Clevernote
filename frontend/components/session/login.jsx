@@ -60,30 +60,30 @@ componentDidMount() {
       <div className="sessionform">
       
         <div className="formcontainer">
-          <img className="sessionlogo" src={window.logo}></img>
-          <br/>
+        <Link to='/'>
+            <img className="sessionlogo" src={window.logo}></img>
+          </Link>
           <h2>Clevernote</h2>
+          <p>Remember everything important.</p>
+          <br/>
           <div className="errors">{this.renderErrors()}</div>
           <form>
-            <label>Email:
             <input
+              placeholder="Email"
               type="text"
               value={this.state.email}
               onChange={this.handleInput('email')}
             />
-            </label>
-
-            <label>Password:
             <input
+              placeholder="Password"
               type="password"
               value={this.state.password}
               onChange={this.handleInput('password')}
             />
-              <button onClick={this.handleSubmit}>Log In!</button>
-              <button onClick={this.demoLogin}>Demo Log In</button>
-              <p>Don't have an account?</p>
-              <Link to='/signup'>Create account</Link>
-            </label>
+              <button className='session-button' onClick={this.handleSubmit}>Continue</button>
+              <button className='session-button' onClick={this.demoLogin}>Demo Log In</button>
+              <p className='light-grey-text' >Don't have an account?</p>
+              <Link className='light-green-text' to='/signup'>Create account</Link>
           </form>
         </div>
         
