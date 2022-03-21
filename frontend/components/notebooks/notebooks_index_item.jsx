@@ -70,7 +70,7 @@ export default class NotebookIndexItem extends React.Component {
 
                             <td
                             >
-                                <Link to={url}>
+                                <Link className='padding10pxleft' to={url}>
                                 {note.title}
                                 </Link>
                             </td>
