@@ -39,17 +39,18 @@ class NewNotebookForm extends React.Component {
                     <br/>
                     <input
                         // className="title-field"
+                        placeholder="Notebook name"
                         type="text"
                         value={this.state.subject}
                         onChange={this.handleInput('subject')}
                     />
                 </form>
                 <div className='flex-bottom-right'>
-                    <button onClick={() => this.makeNewNotebook()}>
-                        Make Notebook
-                    </button>
                     <button type="button" onClick={() => this.props.handleClose()}>
                         Cancel
+                    </button>
+                    <button onClick={() => this.makeNewNotebook()}>
+                        Create
                     </button>
                 </div>
               </>

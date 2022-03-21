@@ -33,7 +33,7 @@ export default class NotebooksIndex extends React.Component {
           <div className='notebooks-container'>
           <h2 className='notebooks-header'>Notebooks</h2>
           <h3 className='notebooks-count'>{this.props.notebooks.length + (this.props.notebooks.length === 1 ? ' notebook' : ' notebooks')}</h3>
-          <button onClick={this.showModal}>New Notebook</button>
+          <button className='heavy-green-text' onClick={this.showModal}>New Notebook</button>
           <table className='notebooks-table arial'>
             <thead>
 
