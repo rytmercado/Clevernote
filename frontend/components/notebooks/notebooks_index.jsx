@@ -32,8 +32,10 @@ export default class NotebooksIndex extends React.Component {
         return(
           <div className='notebooks-container'>
           <h2 className='notebooks-header'>Notebooks</h2>
-          <h3 className='notebooks-count'>{this.props.notebooks.length + (this.props.notebooks.length === 1 ? ' notebook' : ' notebooks')}</h3>
-          <button className='heavy-green-text' onClick={this.showModal}>New Notebook</button>
+          <div className='notebook-sub-header'>
+            <h3 className='notebooks-count'>{this.props.notebooks.length + (this.props.notebooks.length === 1 ? ' notebook' : ' notebooks')}</h3>
+            <button className='heavy-green-text' onClick={this.showModal}>New Notebook</button>
+          </div>
           <table className='notebooks-table arial'>
             <thead>
 
@@ -58,7 +60,7 @@ export default class NotebooksIndex extends React.Component {
           </table>
 
             
-        <Modal show={this.state.showModal} handleClose={this.handleClose} children={<NewNotebookForm handleClose={this.handleClose}/>} />
+        <Modal show={this.state.showModal} children={<NewNotebookForm handleClose={this.handleClose}/>} />
           </div>
         )
       }

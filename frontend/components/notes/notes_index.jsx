@@ -34,14 +34,21 @@ export default class NotesIndex extends React.Component {
             nbId = this.props.notebooks[0].id
         } 
         return (
-            <button onClick={() => this.props.postNote(
-               {
-                title: 'Title',
-                body: '',
-                user_id: this.props.currentUser.id,
-                notebook_id: nbId
-               }
-            ).then(() => this.props.getNotes())}>New Note</button>
+            <div>
+
+                <h1 className='heavy-white-text'> Create your first note</h1>
+                <div className='medium-grey-text'>Click the  
+
+                    <a onClick={() => this.props.postNote(
+                    {
+                        title: 'Title',
+                        body: '',
+                        user_id: this.props.currentUser.id,
+                        notebook_id: nbId
+                    }
+                    ).then(() => this.props.getNotes())}> + New Note</a>  button in the sidebar to get started.
+                </div>
+            </div>
 
         )
     }
@@ -73,8 +80,11 @@ export default class NotesIndex extends React.Component {
             return (
             <div className="note-index">
                 {this.noteIndexHeader(notesFiltered.length)}
-                <div className="note-index-scroll">
+                <div className='flex-center-div'>
+                <button >
+
                     {this.makeNewNoteButton()}
+                </button>
                 </div>
             </div>)
         } else {

@@ -35,11 +35,11 @@ export default class NotebookIndexItem extends React.Component {
         return (
             <>
                 <tr>
-                    <td onClick={() => this.handleExpand()}>{this.state.expanded ? '⮟' : '⮞'}
+                    <td style={{width: '30px'}} onClick={() => this.handleExpand()}>{this.state.expanded ? '⮟' : '⮞'}
                     </td>
                     <td><Link to={notebookUrl}>{notebook.subject}
 
-                    </Link>
+                    </Link><a style={{'padding-left': '0px'}}>{` (${notebook.notes.length})`}</a>
                     </td>
                     <td>{userEmail}</td>
                     <td>{timeSince(notebook.updated_at) + ' ago'}</td>
@@ -51,10 +51,10 @@ export default class NotebookIndexItem extends React.Component {
                     return(
 
 
-                        <tr key={note.id} className={this.state.expanded ? 'notebook-exposed' : 'notebook-hidden'}>
+                        <tr key={note.id} className={this.state.expanded ? 'notebook-item' : 'notebook-item hidden'}>
                             <td></td>
 
-                            <td style={{'paddingLeft': '20px'}}>
+                            <td style={{'paddingLeft': '25px'}}>
                                 <Link to={url}>
                                 {note.title}
                                 </Link>
