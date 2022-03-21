@@ -1,15 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import timeSince from '../../util/time_since_util';
+import Modal from '../modal/modal';
+import RenameNotebookForm from './rename_notebook_form_container';
 
 export default class NotebookIndexItem extends React.Component {
     constructor(props){
         super(props);
 
         this.state = {
-            'expanded': true
+            'expanded': true,
+            'showRenameModal': false
         }
         // this.handleNoteDelete = this.handleNoteDelete.bind(this)
+        this.handleClose = this.handleClose.bind(this)
+        this.showRenameModal = this.showRenameModal.bind(this)
     }
 
     componentDidMount(){
@@ -27,6 +32,14 @@ export default class NotebookIndexItem extends React.Component {
     //     this.props.getNotebooks();
 
     // }
+    handleClose(){
+        this.setState({showRenameModal:false})
+        console.log('wtf')
+      }
+      
+      showRenameModal(){
+        this.setState({showRenameModal:true})
+      }
 
     render() {
         const notebook = this.props.notebook;
@@ -39,10 +52,11 @@ export default class NotebookIndexItem extends React.Component {
                     </td>
                     <td><Link to={notebookUrl}>{notebook.subject}
 
-                    </Link><a style={{'padding-left': '0px'}}>{` (${notebook.notes.length})`}</a>
+                    </Link><a>{` (${notebook.notes.length})`}</a>
                     </td>
                     <td>{userEmail}</td>
                     <td>{timeSince(notebook.updated_at) + ' ago'}</td>
+                    <td onClick={() => this.showRenameModal()}>Rename</td>
                     <td onClick={() => this.props.deleteNotebook(notebook.id)}>Delete</td>
                 </tr>
                 {notebook.notes.map((note) => {
@@ -54,18 +68,21 @@ export default class NotebookIndexItem extends React.Component {
                         <tr key={note.id} className={this.state.expanded ? 'notebook-item' : 'notebook-item hidden'}>
                             <td></td>
 
-                            <td style={{'paddingLeft': '25px'}}>
+                            <td
+                            >
                                 <Link to={url}>
                                 {note.title}
                                 </Link>
                             </td>
                             <td>{userEmail}</td>
                             <td>{timeSince(note.updated_at) + ' ago'}</td>
+                            <td></td>
                             <td onClick={() => this.props.deleteNote(note.id).then(() => this.props.getNotebooks())}>Delete</td>
                         </tr>
 
                     )
                 })}
+                <Modal show={this.state.showRenameModal} children={<RenameNotebookForm notebook={notebook} handleClose={this.handleClose}/>} />
             </>
 
 

@@ -1,19 +1,20 @@
 import React from 'react';
 
-class NewNotebookForm extends React.Component {
+class RenameNotebookForm extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
+            id: null,
             subject: '',
             user_id: this.props.currentUser.id
         }
-        // this.makeNewNotebook = this.makeNewNotebook.bind(this)
+        this.renameNotebook = this.renameNotebook.bind(this);
     }
 
-    makeNewNotebook(){
-        // console.log(this.state)
-        this.props.postNotebook(this.state).then(() => this.setState({subject:''}))
+    renameNotebook(){
+        console.log(this.state)
+        this.props.patchNotebook(this.state).then(() => this.setState({subject:''}))
         this.props.handleClose()
     }
 
@@ -22,18 +23,21 @@ class NewNotebookForm extends React.Component {
         return e => {
             this.setState({[type]: e.currentTarget.value})
         }
-      }
+    }
 
+
+    componentDidMount(){
+        this.props.getNotebooks()
+        this.props.getNotes()
+            .then((res) => {this.setState(this.props.notebook)});
+    }
       render(){
+
           return(
               <>
               <h1>
-                  Create new notebook
+                  Rename Notebook
               </h1>
-              <br/>
-              <p>Notebooks are useful for grouping notes around a common topic.</p>
-              <br/>
-
                 <form>
                 <label>Name</label>
                     <br/>
@@ -49,8 +53,8 @@ class NewNotebookForm extends React.Component {
                     <button onClick={() => this.props.handleClose()}>
                         Cancel
                     </button>
-                    <button onClick={() => this.makeNewNotebook()}>
-                        Create
+                    <button onClick={() => this.renameNotebook()}>
+                        Rename
                     </button>
                 </div>
               </>
@@ -60,4 +64,4 @@ class NewNotebookForm extends React.Component {
 
 }
 
-export default NewNotebookForm
+export default RenameNotebookForm

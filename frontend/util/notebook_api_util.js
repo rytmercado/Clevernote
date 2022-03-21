@@ -21,12 +21,14 @@ export const postNotebook = notebook => (
 );
 
 export const patchNotebook = notebook => (
+
     $.ajax({
         url: `api/notebooks/${notebook.id}`,
         method: 'PATCH',
         data: { notebook }
     })
-);
+)
+;
 
 export const deleteNotebook = notebookId => (
     $.ajax({

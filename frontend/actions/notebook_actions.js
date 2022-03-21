@@ -37,7 +37,7 @@ export const postNotebook = notebook => dispatch => (
 
 export const patchNotebook = notebook => dispatch => (
     notebookApiUtil.patchNotebook(notebook)
-        .then(notebook => dispatch(reciveNotebook(notebook)))
+        .then(notebook => dispatch(receiveNotebook(notebook)))
 );
 
 export const deleteNotebook = notebookId => dispatch => (
