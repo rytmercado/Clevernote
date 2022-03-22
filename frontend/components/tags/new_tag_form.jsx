@@ -11,7 +11,6 @@ class NewTagForm extends React.Component {
     }
 
     makeNewTag(){
-        console.log(this.props)
         this.props.postTag(this.state).then(() => this.setState({name:''}))
         this.props.handleClose()
     }

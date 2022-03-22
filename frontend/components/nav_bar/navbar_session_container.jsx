@@ -4,7 +4,7 @@ import NavbarSession from './navbar_session'
 import { postNote } from "../../actions/note_actions";
 import { getNotebooks } from "../../actions/notebook_actions";
 
-const mSTP = ({ session, entities: {users, notebooks}}) => {    
+const mSTP = ({ session, entities: {users, notebooks}}) => {  
     return {
         currentUser: users[session.id],
         notebooks: Object.values(notebooks),

@@ -20,7 +20,7 @@ export default class NotebookIndexItem extends React.Component {
     }
 
     componentDidMount(){
-        this.props.getNotebooks();
+        // this.props.getNotebooks();
 
     }
 
@@ -62,7 +62,6 @@ export default class NotebookIndexItem extends React.Component {
                 </tr>
                 {notebook.notes.map((note) => {
                     let url = `/notebooks/${note.notebook_id}/${note.id}`
-                    {/* console.log(this.props.currentUser) */}
                     return(
 
 
