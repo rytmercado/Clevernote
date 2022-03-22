@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import timeSince from '../../util/time_since_util';
 import Modal from '../modal/modal';
 import RenameNotebookForm from './rename_notebook_form_container';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faNoteSticky } from '@fortawesome/free-solid-svg-icons'
 
 export default class NotebookIndexItem extends React.Component {
     constructor(props){
@@ -34,10 +36,9 @@ export default class NotebookIndexItem extends React.Component {
     // }
     handleClose(){
         this.setState({showRenameModal:false})
-        console.log('wtf')
-      }
+        }
       
-      showRenameModal(){
+    showRenameModal(){
         this.setState({showRenameModal:true})
       }
 
@@ -70,14 +71,15 @@ export default class NotebookIndexItem extends React.Component {
 
                             <td
                             >
-                                <Link className='padding10pxleft' to={url}>
+                                <Link className='padding10pxleft' to={url}> 
+                                {/* <FontAwesomeIcon id="note-fai-large" icon={faNoteSticky} /> */}
                                 {note.title}
                                 </Link>
                             </td>
                             <td>{userEmail}</td>
                             <td>{timeSince(note.updated_at) + ' ago'}</td>
                             <td></td>
-                            <td onClick={() => this.props.deleteNote(note.id).then(() => this.props.getNotebooks())}>Delete</td>
+                            <td color='red' onClick={() => this.props.deleteNote(note.id).then(() => this.props.getNotebooks())}>Delete</td>
                         </tr>
 
                     )

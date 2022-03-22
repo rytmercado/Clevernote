@@ -1,3 +1,47 @@
 // Place all the styles related to the api/tags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.tags-header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: 40px;
+    // padding-top: 24px;
+    
+    font-size: 20px;
+    color: 	#d9d9d9;  
+    // z-index: 3;
+    background-color: 	#1A1A1A;
+    overflow: hidden;
+    border-bottom: 2px solid rgb(115,115,115);
+
+    
+}
+
+.tag-index {
+    width: 380px;
+    background-color: 	#1A1A1A;
+    border-right: 1px solid black;
+    // padding-left: 24px;
+    // padding-right: 12px;
+
+    padding-top: 18px;
+    padding-left: 24px;
+    padding-right: 16px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+
+}
+
+#new-tag {
+    float: right;
+    display: flex;
+
+    width: 100%;
+    text-align: end;
+
+}
