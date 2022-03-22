@@ -51,14 +51,14 @@ export default class NotebookIndexItem extends React.Component {
                 <tr>
                     <td style={{width: '30px'}} onClick={() => this.handleExpand()}>{this.state.expanded ? '⮟' : '⮞'}
                     </td>
-                    <td><Link to={notebookUrl}>{notebook.subject}
+                    <td><Link className='hover-underline' to={notebookUrl}>{notebook.subject}
 
                     </Link><a>{` (${notebook.notes.length})`}</a>
                     </td>
                     <td>{userEmail}</td>
                     <td>{timeSince(notebook.updated_at) + ' ago'}</td>
-                    <td onClick={() => this.showRenameModal()}>Rename</td>
-                    <td onClick={() => this.props.deleteNotebook(notebook.id)}>Delete</td>
+                    <td className='hover-underline' onClick={() => this.showRenameModal()}>Rename</td>
+                    <td className='hover-underline' onClick={() => this.props.deleteNotebook(notebook.id)}>Delete</td>
                 </tr>
                 {notebook.notes.map((note) => {
                     let url = `/notebooks/${note.notebook_id}/${note.id}`
@@ -71,7 +71,7 @@ export default class NotebookIndexItem extends React.Component {
 
                             <td
                             >
-                                <Link className='padding10pxleft' to={url}> 
+                                <Link className='hover-underline padding10pxleft' to={url}> 
                                 {/* <FontAwesomeIcon id="note-fai-large" icon={faNoteSticky} /> */}
                                 {note.title}
                                 </Link>
@@ -79,7 +79,7 @@ export default class NotebookIndexItem extends React.Component {
                             <td>{userEmail}</td>
                             <td>{timeSince(note.updated_at) + ' ago'}</td>
                             <td></td>
-                            <td color='red' onClick={() => this.props.deleteNote(note.id).then(() => this.props.getNotebooks())}>Delete</td>
+                            <td className='hover-underline' color='red' onClick={() => this.props.deleteNote(note.id).then(() => this.props.getNotebooks())}>Delete</td>
                         </tr>
 
                     )

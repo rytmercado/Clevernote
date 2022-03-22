@@ -64,6 +64,8 @@
         padding-bottom: 15px;
         padding-left: 10px;
     }
+
+    
       tbody > tr:nth-child(2n-1) {
           background-color: #292929;
 
@@ -159,4 +161,9 @@
 
   .padding10pxleft {
     padding-left: 20px;
+  }
+
+  .hover-underline:hover {
+    text-decoration: underline;
+    cursor: pointer;
   }

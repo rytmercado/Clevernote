@@ -4,25 +4,23 @@ class NewTagForm extends React.Component {
     constructor(props) {
         super(props)
 
-    //     this.state = {
-    //         subject: '',
-    //         user_id: this.props.currentUser.id
-    //     }
-    //     // this.makeNewNotebook = this.makeNewNotebook.bind(this)
+        this.state = {
+            name: '',
+            user_id: this.props.currentUser.id
+        }
     }
 
-    // makeNewNotebook(){
-    //     // console.log(this.state)
-    //     this.props.postNotebook(this.state).then(() => this.setState({subject:''}))
-    //     this.props.handleClose()
-    // }
+    makeNewTag(){
+        console.log(this.props)
+        this.props.postTag(this.state).then(() => this.setState({name:''}))
+        this.props.handleClose()
+    }
 
-    // handleInput(type) {
-    //     // e.preventDefault();
-    //     return e => {
-    //         this.setState({[type]: e.currentTarget.value})
-    //     }
-    //   }
+    handleInput(type) {
+        return e => {
+            this.setState({[type]: e.currentTarget.value})
+        }
+      }
 
       render(){
           return(
@@ -38,11 +36,11 @@ class NewTagForm extends React.Component {
                 <label>Name</label>
                     <br/>
                     <input
-                        // className="title-field"
+
                         placeholder="Tag name"
                         type="text"
-                        // value={this.state.subject}
-                        // onChange={this.handleInput('subject')}
+                        value={this.state.name}
+                        onChange={this.handleInput('name')}
                     />
                 </form>
                 <div className='flex-bottom-right'>
@@ -52,7 +50,7 @@ class NewTagForm extends React.Component {
                         Cancel
                     </button>
                     <button 
-                    // onClick={() => this.makeNewNotebook()}
+                    onClick={() => this.makeNewTag()}
                     >
                         Create
                     </button>

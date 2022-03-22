@@ -6,42 +6,51 @@ export default class TagIndex extends Component {
 
   constructor(props) {
     super(props);
-    
-    this.state = {
-          showModal: false
-        }
-        
-        this.handleClose = this.handleClose.bind(this)
-        this.showModal = this.showModal.bind(this)
-      }
 
-  handleClose(){
-    this.setState({showModal:false})
+    this.state = {
+      showModal: false
+    }
+
+    this.handleClose = this.handleClose.bind(this)
+    this.showModal = this.showModal.bind(this)
   }
-  
-  showModal(){
-    this.setState({showModal:true})
+
+  componentDidMount() {
+    this.props.getTags();
+    // console.log(this.props)
+  }
+
+  handleClose() {
+    this.setState({ showModal: false })
+  }
+
+  showModal() {
+    this.setState({ showModal: true })
   }
 
   render() {
+    console.log(this.props.tags)
     return (
       <div className='tag-index'>
-          <header className="tags-header">
-            <div className='notes-header-top'>
+        <header className="tags-header">
+          <div className='notes-header-top'>
 
-                <h1>Tags</h1>
-                <div id='new-tag' >
-                  <button onClick={this.showModal} className='heavy-green-text'>New Tag</button>
-                </div>
-
+            <div id='new-tag' >
+              <h1>Tags</h1>
+              <button onClick={this.showModal} className='heavy-green-text'>New Tag</button>
             </div>
-          </header>
-          <ul>
-                    <li className='note-index-item'>tag1</li>
-                    <li className='note-index-item'>tag2</li>
-                    <li className='note-index-item'>tag3</li>
-          </ul>
-          <Modal show={this.state.showModal} children={<NewTagForm handleClose={this.handleClose} />} />
+
+          </div>
+        </header>
+        <ul>
+          {this.props.tags.map(tag => {
+            return(
+
+            <li className='tag-index-item' key={tag.id}>{tag.name}</li>
+            )
+          })}
+        </ul>
+        <Modal show={this.state.showModal} children={<NewTagForm handleClose={this.handleClose} currentUser={this.props.currentUser} postTag={this.props.postTag} />} />
       </div>
     )
   }

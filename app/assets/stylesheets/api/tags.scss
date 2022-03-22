@@ -38,10 +38,33 @@
 }
 
 #new-tag {
-    float: right;
+    
     display: flex;
-
+    justify-content: space-between;
     width: 100%;
-    text-align: end;
+    button{
+     width: auto;
+    }
 
+}
+
+.tag-index-item {
+    text-rendering: optimizeLegibility;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    font-size: 14px;
+    color: 	#d9d9d9;
+    padding-left: 12px;
+    height: 26px;
+    border-radius: 16px;
+    width: fit-content;
+    padding-right: 12px;
+    padding-top: 2px;    
+}
+
+.tag-index-item:first-of-type {
+    margin-top: 20px;
+}
+
+.tag-index-item:hover {
+    background-color: #333333;
 }
