@@ -32,12 +32,14 @@
     border-radius: 20px;
     width: 92%;
     padding: 0px;
-    margin-left: 10px;    
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;    
 }
 
 
 
-a.grey-hover:hover {
+a.grey-hover:hover, .selected-nav {
     background-color: #333333;
 }
 

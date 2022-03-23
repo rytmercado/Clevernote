@@ -8,7 +8,7 @@ import EditorContainer from '../editor/editor_container'
 const Notebooks = () => {
     return (
         <div className="home-container">
-            <NavbarSessionContainer />
+            <NavbarSessionContainer selected={'notebooks'}/>
             <Route exact path="/notebooks" component={NotebooksIndexContainer}/>
             <Route path="/notebooks/:notebookId" component={NotesIndexContainer}/>
             <Route path="/notebooks/:notebookId/:noteId" component={EditorContainer}/>

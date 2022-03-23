@@ -8,10 +8,10 @@ import EditorContainer from '../editor/editor_container';
 
 
 
-const Notes = () => {
+const Notes = (props) => {
     return (
         <div className="home-container">
-            <NavbarSessionContainer />
+            <NavbarSessionContainer selected={'notes'}/>
             <Route path="/notes" component={NotesIndexContainer}/>
             <Route path="/notes/:noteId" component={EditorContainer}/>
         </div>

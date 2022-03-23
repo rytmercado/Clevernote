@@ -9,7 +9,7 @@ const Tags = () => {
     return (
 
         <div className="home-container">
-            <NavbarSessionContainer />
+            <NavbarSessionContainer selected={'tags'} />
             <Route path="/tags/:tagId" component={NotesIndex}/>
             <Route path="/tags/:tagId/:noteId" component={Editor}/>
             <Route exact path="/tags" component={TagIndex}/>            

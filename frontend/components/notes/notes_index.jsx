@@ -112,10 +112,9 @@ export default class NotesIndex extends React.Component {
             <div className="note-index">
                 {this.noteIndexHeader(0)}
                 <div className='flex-center-div'>
-                <button >
-
-                    {this.makeNewNoteButton()}
-                </button>
+                    <button >
+                        {this.makeNewNoteButton()}
+                    </button>
                 </div>
             </div>)
         } else {
