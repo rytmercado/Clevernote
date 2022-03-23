@@ -9,7 +9,6 @@ import Notebooks from './notebooks/notebooks'
 import Tags from "./tags/tags";
 
 const App = () => (
-  <div className="bottom-fix">
     <Switch>
       <ProtectedRoute path="/notes" component={Notes}/>
       <ProtectedRoute path="/tags" component={Tags}/>
@@ -18,7 +17,6 @@ const App = () => (
       <AuthRoute path="/login" component={LoginContainer} />
       <Route path="/" component={Splash} />
     </Switch>
- </div>
 );
 
 export default App;

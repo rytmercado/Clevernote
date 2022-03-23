@@ -7,7 +7,6 @@ import NotebookDropdown from "../notebooks/notebook_dropdown";
 export default class Editor extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props)
         this.state = {
             id: null,
             title: "",
@@ -51,12 +50,10 @@ export default class Editor extends React.Component {
     }
 
     handleQuillUpdate(text) {
-        console.log(this)
         this.setState({body: text}, () => this.props.patchNote(this.state))
     }
 
     handleCreateTag() {
-        console.log(this)
         let tag = this.props.tags.find((tag) => {
             return tag.name === this.state.tagName;
         })

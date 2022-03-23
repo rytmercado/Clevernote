@@ -18,7 +18,6 @@ export default class TagIndex extends Component {
 
   componentDidMount() {
     this.props.getTags();
-    // console.log(this.props)
   }
 
   handleClose() {
@@ -30,7 +29,6 @@ export default class TagIndex extends Component {
   }
 
   render() {
-    console.log(this.props.tags)
     let url
     let tagName
     return (

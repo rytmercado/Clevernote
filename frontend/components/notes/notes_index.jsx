@@ -107,7 +107,6 @@ export default class NotesIndex extends React.Component {
         else {
             notesFiltered = Object.values(this.props.notes)
         }
-        console.log(notesFiltered)
         if (notesFiltered.length === 0) {
             return (
             <div className="note-index">
