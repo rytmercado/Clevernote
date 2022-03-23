@@ -47,16 +47,22 @@ export default class TagIndex extends Component {
         </header>
         <ul>
           {this.props.tags.map(tag => {
-            url = `/tags/${tag.id}`
-            tagName = `${tag.name} (${tag.notes.length})`
-            return(
-              <div className='tag-index-container'>
-              <div>
+            let numNotes = 0;
 
-                <Link key={tag.id} to={url}>
-                    <li className='tag-index-item'>{tagName}</li>
-                </Link>
-              </div>
+            url = `/tags/${tag.id}`
+            if(tag.notes) {
+
+            numNotes = tag.notes.length
+            }
+            tagName = `${tag.name} (${numNotes})`
+            return(
+              <div key={tag.id} className='tag-index-container'>
+                <div>
+
+                  <Link  to={url}>
+                      <li className='tag-index-item'>{tagName}</li>
+                  </Link>
+                </div>
 
                   <button onClick={() => this.props.deleteTag(tag.id)}>X</button>
               </div>

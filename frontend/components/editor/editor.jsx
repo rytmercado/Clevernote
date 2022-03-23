@@ -19,10 +19,10 @@ export default class Editor extends React.Component {
 
         this.handleQuillUpdate = this.handleQuillUpdate.bind(this);
         this.handleInput = this.handleInput.bind(this)
+        this.handleCreateTag = this.handleCreateTag.bind(this)
     }
 
     handleInput(type) {
-        console.log(this.state)
         
         return e => {
             this.setState({[type]: e.currentTarget.value}
@@ -40,6 +40,8 @@ export default class Editor extends React.Component {
         this.props.getNotebooks()
         this.props.getNotes()
             .then((res) => {this.setState(this.props.note)});
+        this.props.getTags()
+        this.props.getNoteTags()
     }
 
     componentDidUpdate(prevProps){
@@ -50,6 +52,24 @@ export default class Editor extends React.Component {
 
     handleQuillUpdate(text) {
         this.setState({body: text}, () => this.props.patchNote(this.state))
+    }
+
+    handleCreateTag() {
+        let tag = this.props.tags.find((tag) => {
+            return tag.name === this.state.tagName;
+        })
+
+        if(tag) {
+            this.props.postNoteTag({note_id: this.props.note.id, tag_id: tag.id})
+            .then(res => this.props.getNotes())
+
+        } else {
+            this.props.postTag({name: this.state.tagName, user_id: this.props.currentUser.id})
+                .then((res) => this.props.postNoteTag({note_id: this.props.note.id, tag_id: res.tag.id}))
+                .then(res => this.props.getNotes())
+            
+        }
+        this.setState({tagName:''})
     }
 
     render(){
@@ -91,7 +111,7 @@ export default class Editor extends React.Component {
                             onChange={this.handleInput('tagName')}
                             placeholder='tag name'
                         ></input>
-                        <a className={this.state.tagName.length > 0 ? '' : 'hidden'}>Create new tag
+                        <a onClick={() => this.handleCreateTag()} className={this.state.tagName.length > 0 ? '' : 'hidden'}>Create new tag
                             
                         </a>
 

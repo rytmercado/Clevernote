@@ -19,15 +19,10 @@ const removeTag = ({id}) => ({
     id
 });
 
-export const getTags = () => dispatch => {
+export const getTags = () => dispatch => (
     tagApiUtil.getTags()
-        .then(tags => {
-            
-            dispatch(receiveTags(tags))})
-}
-
-
-;
+        .then(tags => (dispatch(receiveTags(tags))))
+);
 
 export const getTag = tagId => dispatch => (
     tagApiUtil.getTag(tagId)
