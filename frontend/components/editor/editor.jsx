@@ -101,7 +101,7 @@ export default class Editor extends React.Component {
                     />
                 </form>
                     <div className='tag-footer'>
-                        {
+                        { 
                             this.props.note.tags.map(tag => {
                                 return(
 

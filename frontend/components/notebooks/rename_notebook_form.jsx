@@ -46,6 +46,9 @@ class RenameNotebookForm extends React.Component {
               <h1>
                   Rename Notebook
               </h1>
+              <br/>
+              <p>Notebooks are useful for grouping notes around a common topic.</p>
+              <br/>
                 <form>
                 <label>Name</label>
                     <br/>
