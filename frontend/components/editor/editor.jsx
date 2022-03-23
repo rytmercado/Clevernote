@@ -81,7 +81,7 @@ export default class Editor extends React.Component {
                             this.props.note.tags.map(tag => {
                                 return(
 
-                                <a className='tag-item'>{tag.name}</a>
+                                <a key={tag.id} className='tag-item'>{tag.name}</a>
                                 )
                             }
                             )
