@@ -13,11 +13,11 @@ const mSTP = (state, ownProps) => {
     const notebook = state.entities.notebooks[ownProps.match.params.notebookId]
     const tag = state.entities.tags[ownProps.match.params.tagId]
     return {
-        tag: tag,
         notebook: notebook,
         notes: Object.values(state.entities.notes).reverse(), // this reverse might be dangerous, dont forget about it
         currentUser: state.entities.users[state.session.id],
-        notebooks: Object.values(state.entities.notebooks)
+        notebooks: Object.values(state.entities.notebooks),
+        tag: tag,
     }
 }
 

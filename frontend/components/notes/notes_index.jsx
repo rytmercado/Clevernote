@@ -98,7 +98,6 @@ export default class NotesIndex extends React.Component {
         }
 
         if (this.props.tag) {
-            console.log(this.props)
             notesFiltered = this.props.tag.notes
         }
         else if (this.props.notebook) {
@@ -108,8 +107,8 @@ export default class NotesIndex extends React.Component {
         else {
             notesFiltered = Object.values(this.props.notes)
         }
-        // console.log(notesFiltered)
-        if (!notesFiltered) {
+        console.log(notesFiltered)
+        if (notesFiltered.length === 0) {
             return (
             <div className="note-index">
                 {this.noteIndexHeader(0)}
@@ -121,45 +120,46 @@ export default class NotesIndex extends React.Component {
                 </div>
             </div>)
         } else {
+            return(
+                <div className="note-index">
+                    {this.noteIndexHeader(notesFiltered.length)}
+                    <div className="note-index-scroll">
+                        <ul >
+                            {notesFiltered.map(note => {
+                            let url = `/notes/${note.id}`
+                            if (this.props.tag) {
+                                url = `/tags/${this.props.tag.id}/${note.id}`
+                            }
+                            else if (this.props.notebook) {
+                            url = `/notebooks/${this.props.notebook.id}/${note.id}`
+                        }
+                            
+                            return(
+                                <div 
+                                    className={`note-index-container${this.state.activeWord === note.id ? ' selected-note' : ''}`} 
+                                    onClick={() => this.selectedNote(note.id)} 
+                                    key={note.id} >
+                                    <Link to={url} >
+                                        <li  className="note-index-item" >{note.title}</li>
+                                        <li className='note-index-item-body'>{this.extractBodyText(note.body).slice(0, 20)}</li>
+                                        <div className="delete-note-container">
+    
+                                            <FontAwesomeIcon onClick={() => this.props.deleteNote(note.id)} icon={faTrash} />
+                                        </div>
+                                        <div className="note-index-item-bottom">
+                                            <span id='note-count'>{'last updated ' + timeSince(note.updated_at) + ' ago'}</span>
+                                        </div>
+                                    </Link>
+                                </div>
+                            )
+                            })
+                            }
+                        </ul>
+                    </div>
+                </div>
+            )
 
         }
-        return(
-            <div className="note-index">
-                {this.noteIndexHeader(notesFiltered.length)}
-                <div className="note-index-scroll">
-                    <ul >
-                        {notesFiltered.map(note => {
-                        let url = `/notes/${note.id}`
-                        if (this.props.tag) {
-                            url = `/tags/${this.props.tag.id}/${note.id}`
-                        }
-                        else if (this.props.notebook) {
-                        url = `/notebooks/${this.props.notebook.id}/${note.id}`
-                    }
-                        
-                        return(
-                            <div 
-                                className={`note-index-container${this.state.activeWord === note.id ? ' selected-note' : ''}`} 
-                                onClick={() => this.selectedNote(note.id)} 
-                                key={note.id} >
-                                <Link to={url} >
-                                    <li  className="note-index-item" >{note.title}</li>
-                                    <li className='note-index-item-body'>{this.extractBodyText(note.body).slice(0, 20)}</li>
-                                    <div className="delete-note-container">
-
-                                        <FontAwesomeIcon onClick={() => this.props.deleteNote(note.id)} icon={faTrash} />
-                                    </div>
-                                    <div className="note-index-item-bottom">
-                                        <span id='note-count'>{'last updated ' + timeSince(note.updated_at) + ' ago'}</span>
-                                    </div>
-                                </Link>
-                            </div>
-                        )
-                        })
-                        }
-                    </ul>
-                </div>
-            </div>
-        )
+        
         }
     }

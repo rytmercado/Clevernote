@@ -71,7 +71,10 @@ export default class Editor extends React.Component {
         } else {
             this.props.postTag({name: this.state.tagName, user_id: this.props.currentUser.id})
                 .then((res) => this.props.postNoteTag({note_id: this.props.note.id, tag_id: res.tag.id}))
-                .then(res => this.props.getNotes())
+                .then(res => {
+                    this.props.getNotes()
+                    this.props.getTags()
+                })
             
         }
     }
