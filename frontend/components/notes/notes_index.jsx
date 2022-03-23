@@ -28,6 +28,13 @@ export default class NotesIndex extends React.Component {
         this.setState({activeWord: idx})
     }
 
+    extractBodyText(str){
+        const span = document.createElement('span');
+        span.innerHTML = str;
+        return span.textContent || span.innerText;
+
+    }
+
     makeNewNoteButton(){
         let nbId
         if (this.props.notebook) {
@@ -137,6 +144,7 @@ export default class NotesIndex extends React.Component {
                                 key={note.id} >
                                 <Link to={url} >
                                     <li  className="note-index-item" >{note.title}</li>
+                                    <li className='note-index-item-body'>{this.extractBodyText(note.body).slice(0, 20)}</li>
                                     <div className="delete-note-container">
 
                                         <FontAwesomeIcon onClick={() => this.props.deleteNote(note.id)} icon={faTrash} />
