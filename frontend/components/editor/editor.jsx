@@ -105,7 +105,7 @@ export default class Editor extends React.Component {
                             this.props.note.tags.map(tag => {
                                 return(
 
-                                <a onClick={() => this.props.history.push(`/tags/${tag.id}`)} key={tag.id} className='tag-item'>{tag.name}</a>
+                                <a onClick={() => this.props.history.push(`/tags/${tag.id}/${this.props.note.id}`)} key={tag.id} className='tag-item'>{tag.name}</a>
                                 )
                             }
                             )
