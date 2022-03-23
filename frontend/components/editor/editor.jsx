@@ -7,7 +7,7 @@ import NotebookDropdown from "../notebooks/notebook_dropdown";
 export default class Editor extends React.Component {
     constructor(props) {
         super(props);
-
+        console.log(this.props)
         this.state = {
             id: null,
             title: "",
@@ -51,17 +51,22 @@ export default class Editor extends React.Component {
     }
 
     handleQuillUpdate(text) {
+        console.log(this)
         this.setState({body: text}, () => this.props.patchNote(this.state))
     }
 
     handleCreateTag() {
+        console.log(this)
         let tag = this.props.tags.find((tag) => {
             return tag.name === this.state.tagName;
         })
 
         if(tag) {
             this.props.postNoteTag({note_id: this.props.note.id, tag_id: tag.id})
-            .then(res => this.props.getNotes())
+            .then(() => {
+                this.props.getNotes()
+                this.props.getTags()
+            })
 
         } else {
             this.props.postTag({name: this.state.tagName, user_id: this.props.currentUser.id})
@@ -69,7 +74,6 @@ export default class Editor extends React.Component {
                 .then(res => this.props.getNotes())
             
         }
-        this.setState({tagName:''})
     }
 
     render(){
@@ -101,7 +105,7 @@ export default class Editor extends React.Component {
                             this.props.note.tags.map(tag => {
                                 return(
 
-                                <a key={tag.id} className='tag-item'>{tag.name}</a>
+                                <a onClick={() => this.props.history.push(`/tags/${tag.id}`)} key={tag.id} className='tag-item'>{tag.name}</a>
                                 )
                             }
                             )
@@ -111,7 +115,7 @@ export default class Editor extends React.Component {
                             onChange={this.handleInput('tagName')}
                             placeholder='tag name'
                         ></input>
-                        <a onClick={() => this.handleCreateTag()} className={this.state.tagName.length > 0 ? '' : 'hidden'}>Create new tag
+                        <a onClick={this.handleCreateTag} className={this.state.tagName.length > 0 ? '' : 'hidden'}>Create new tag
                             
                         </a>
 

@@ -4,6 +4,7 @@ import { getNotes, postNote, deleteNote  } from "../../actions/note_actions";
 import { getNotebooks } from '../../actions/notebook_actions'
 import { getTags } from "../../actions/tag_actions";
 import { withRouter } from 'react-router-dom';
+import { getNoteTags } from "../../actions/note_tag_actions";
 
 
 import NotesIndex from "./notes_index"
@@ -26,7 +27,8 @@ const mDTP = dispatch => ({
     postNote: (note) => dispatch(postNote(note)),
     deleteNote: (noteId) => dispatch(deleteNote(noteId)),
     getNotebooks: () => dispatch(getNotebooks()),
-    getTags: () => dispatch(getTags())
+    getTags: () => dispatch(getTags()),
+    getNoteTags: () => dispatch(getNoteTags())
 })
 
 export default withRouter(connect(mSTP, mDTP)(NotesIndex));

@@ -20,6 +20,7 @@ export default class NotesIndex extends React.Component {
         this.props.getNotebooks();
         this.props.getNotes();
         this.props.getTags();
+        this.props.getNoteTags();
     }
 
     selectedNote(idx){
@@ -82,18 +83,29 @@ export default class NotesIndex extends React.Component {
     }
 
     render() {
-        let notesFiltered = this.props.notes;
+        // console.log(notesFiltered)
+        let notesFiltered = [];
+        if (!notesFiltered) {
+            console.log('not here')
+            return null
+        }
+
         if (this.props.tag) {
+            console.log(this.props)
             notesFiltered = this.props.tag.notes
         }
         else if (this.props.notebook) {
             notesFiltered = this.props.notes.filter(note => note.notebook_id === this.props.notebook.id)
         }
 
-        if (notesFiltered.length === 0) {
+        else {
+            notesFiltered = Object.values(this.props.notes)
+        }
+        // console.log(notesFiltered)
+        if (!notesFiltered) {
             return (
             <div className="note-index">
-                {this.noteIndexHeader(notesFiltered.length)}
+                {this.noteIndexHeader(0)}
                 <div className='flex-center-div'>
                 <button >
 

@@ -8,7 +8,8 @@ const mSTP = (state) => {
 
     return {
         notebooks: Object.values(state.entities.notebooks),
-        currentUser: state.entities.users[state.session.id]
+        currentUser: state.entities.users[state.session.id],
+        
     }
 }
 
