@@ -12,11 +12,11 @@ export default class NotebookIndexItem extends React.Component {
 
         this.state = {
             'expanded': true,
-            'showRenameModal': false
+            // 'showRenameModal': false
         }
         // this.handleNoteDelete = this.handleNoteDelete.bind(this)
-        this.handleClose = this.handleClose.bind(this)
-        this.showRenameModal = this.showRenameModal.bind(this)
+        // this.handleClose = this.handleClose.bind(this)
+        // this.showRenameModal = this.showRenameModal.bind(this)
     }
 
     componentDidMount(){
@@ -34,13 +34,13 @@ export default class NotebookIndexItem extends React.Component {
     //     this.props.getNotebooks();
 
     // }
-    handleClose(){
-        this.setState({showRenameModal:false})
-        }
+    // handleClose(){
+    //     this.setState({showRenameModal:false})
+    //     }
       
-    showRenameModal(){
-        this.setState({showRenameModal:true})
-      }
+    // showRenameModal(){
+    //     this.setState({showRenameModal:true})
+    //   }
 
     render() {
         const notebook = this.props.notebook;
@@ -57,7 +57,7 @@ export default class NotebookIndexItem extends React.Component {
                     </td>
                     <td>{userEmail}</td>
                     <td>{timeSince(notebook.updated_at) + ' ago'}</td>
-                    <td className='hover-underline' onClick={() => this.showRenameModal()}>Rename</td>
+                    <td className='hover-underline' onClick={() => this.props.showRenameModal(notebook)}>Rename</td>
                     <td className='hover-underline' onClick={() => this.props.deleteNotebook(notebook.id)}>Delete</td>
                 </tr>
                 {notebook.notes.map((note) => {
@@ -83,7 +83,7 @@ export default class NotebookIndexItem extends React.Component {
 
                     )
                 })}
-                <Modal show={this.state.showRenameModal} children={<RenameNotebookForm notebook={notebook} handleClose={this.handleClose}/>} />
+                {/* <Modal show={this.state.showRenameModal} children={<RenameNotebookForm notebook={notebook} handleClose={this.handleClose}/>} /> */}
             </>
 
 

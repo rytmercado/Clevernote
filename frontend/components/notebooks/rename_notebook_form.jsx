@@ -3,18 +3,17 @@ import React from 'react';
 class RenameNotebookForm extends React.Component {
     constructor(props) {
         super(props)
-
         this.state = {
-            id: null,
+            id: '',
             subject: '',
-            user_id: this.props.currentUser.id
+            user_id: ''
         }
         this.renameNotebook = this.renameNotebook.bind(this);
     }
 
     renameNotebook(){
-        console.log(this.state)
-        this.props.patchNotebook(this.state).then(() => this.setState({subject:''}))
+        // console.log(this.state)
+        this.props.patchNotebook(this.state)
         this.props.handleClose()
     }
 
@@ -27,11 +26,20 @@ class RenameNotebookForm extends React.Component {
 
 
     componentDidMount(){
-        this.props.getNotebooks()
+        this.props.getNotebooks();
         this.props.getNotes()
-            .then((res) => {this.setState(this.props.notebook)});
     }
+
+    componentDidUpdate(prevProps){
+        if((this.props.notebook !== prevProps.notebook)) {
+            this.setState(this.props.notebook);
+        }
+    }
+
       render(){
+          if(!this.props.notebook) {
+              return null;
+          }
 
           return(
               <>

@@ -22,7 +22,6 @@ const removeTag = ({id}) => ({
 export const getTags = () => dispatch => {
     tagApiUtil.getTags()
         .then(tags => {
-            console.log(tags)
             
             dispatch(receiveTags(tags))})
 }

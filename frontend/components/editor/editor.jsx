@@ -14,6 +14,7 @@ export default class Editor extends React.Component {
             body: "",
             updated_at: "",
             notebook_id: null,
+            tagName: '',
         }
 
         this.handleQuillUpdate = this.handleQuillUpdate.bind(this);
@@ -21,7 +22,7 @@ export default class Editor extends React.Component {
     }
 
     handleInput(type) {
-        // console.log(this.state)
+        console.log(this.state)
         
         return e => {
             this.setState({[type]: e.currentTarget.value}
@@ -65,7 +66,8 @@ export default class Editor extends React.Component {
                         value={this.state.title}
                         onChange={this.handleInput('title')}
                     />
-                    <ReactQuill 
+                    <ReactQuill
+                        className='body-field'
                         theme="snow" 
                         placeholder="Start writing here..." 
                         value={this.state.body} 
@@ -74,6 +76,26 @@ export default class Editor extends React.Component {
                         formats={quillFormats}
                     />
                 </form>
+                    <div className='tag-footer'>
+                        {
+                            this.props.note.tags.map(tag => {
+                                return(
+
+                                <a className='tag-item'>{tag.name}</a>
+                                )
+                            }
+                            )
+                        }
+                        <input
+                            className='new-tag-input-field'
+                            onChange={this.handleInput('tagName')}
+                            placeholder='tag name'
+                        ></input>
+                        <a className={this.state.tagName.length > 0 ? '' : 'hidden'}>Create new tag
+                            
+                        </a>
+
+                    </div>
             </div>
         )
     }

@@ -4,7 +4,7 @@ import { LOGOUT_CURRENT_USER } from "../../actions/session_actions";
 import Notes from "./notes";
 import timeSince from "../../util/time_since_util";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash, faNoteSticky } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faNoteSticky, faTag, faBook } from '@fortawesome/free-solid-svg-icons'
 // import Notes from "./notes";
 
 
@@ -19,6 +19,7 @@ export default class NotesIndex extends React.Component {
     componentDidMount(){
         this.props.getNotebooks();
         this.props.getNotes();
+        this.props.getTags();
     }
 
     selectedNote(idx){
@@ -46,7 +47,12 @@ export default class NotesIndex extends React.Component {
                         user_id: this.props.currentUser.id,
                         notebook_id: nbId
                     }
-                    ).then(() => this.props.getNotes())}> + New Note</a>  button in the sidebar to get started.
+                    ).then(() => {
+
+                    this.props.getNotes()
+                    this.props.history.push(`/notebooks/${nbId}`)
+                    })}>
+                     + New Note</a>  button in the sidebar to get started.
                 </div>
             </div>
 
@@ -54,14 +60,20 @@ export default class NotesIndex extends React.Component {
     }
 
     noteIndexHeader(l){
-        let header = 'Notes'
-        if (this.props.notebook) {
+        let header = 'Notes';
+        let symbol = faNoteSticky;
+        if (this.props.tag){
+            header = this.props.tag.name;
+            symbol = faTag;
+        }
+        else if (this.props.notebook) {
             header = this.props.notebook.subject
+            symbol = faBook;
         }
         return (
             <header className="notes-header">
                     <div className='notes-header-top'>
-                        <FontAwesomeIcon id="note-fai-large" icon={faNoteSticky} />
+                        <FontAwesomeIcon id="note-fai-large" icon={symbol} />
                         <h1>{header}</h1>
                     </div>
                     <a id='note-count'>{l + ' notes'}</a>
@@ -70,9 +82,11 @@ export default class NotesIndex extends React.Component {
     }
 
     render() {
-   
         let notesFiltered = this.props.notes;
-        if (this.props.notebook) {
+        if (this.props.tag) {
+            notesFiltered = this.props.tag.notes
+        }
+        else if (this.props.notebook) {
             notesFiltered = this.props.notes.filter(note => note.notebook_id === this.props.notebook.id)
         }
 
@@ -97,7 +111,10 @@ export default class NotesIndex extends React.Component {
                     <ul >
                         {notesFiltered.map(note => {
                         let url = `/notes/${note.id}`
-                        if (this.props.notebook) {
+                        if (this.props.tag) {
+                            url = `/tags/${this.props.tag.id}/${note.id}`
+                        }
+                        else if (this.props.notebook) {
                         url = `/notebooks/${this.props.notebook.id}/${note.id}`
                     }
                         

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Modal from '../modal/modal';
 import NewTagForm from './new_tag_form';
+import { Link } from 'react-router-dom';
 
 export default class TagIndex extends Component {
 
@@ -30,6 +31,8 @@ export default class TagIndex extends Component {
 
   render() {
     console.log(this.props.tags)
+    let url
+    let tagName
     return (
       <div className='tag-index'>
         <header className="tags-header">
@@ -44,9 +47,20 @@ export default class TagIndex extends Component {
         </header>
         <ul>
           {this.props.tags.map(tag => {
+            url = `/tags/${tag.id}`
+            tagName = `${tag.name} (${tag.notes.length})`
             return(
+              <div className='tag-index-container'>
+              <div>
 
-            <li className='tag-index-item' key={tag.id}>{tag.name}</li>
+                <Link key={tag.id} to={url}>
+                    <li className='tag-index-item'>{tagName}</li>
+                </Link>
+              </div>
+
+                  <button onClick={() => this.props.deleteTag(tag.id)}>X</button>
+              </div>
+
             )
           })}
         </ul>

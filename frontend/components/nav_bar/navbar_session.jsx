@@ -13,7 +13,6 @@ export default class NavbarSession extends React.Component {
 
     componentDidMount() {
         this.props.getNotebooks();
-        console.log(this.props)
     }
 
     render(){
