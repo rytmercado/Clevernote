@@ -23,6 +23,24 @@ export default class NotesIndex extends React.Component {
         this.props.getNoteTags();
     }
 
+    noteTags(tags){
+        return (
+            <div className='note-index-tags'>
+                                        
+            { 
+                    tags.map(tag => {
+                        return(
+
+                        <span key={tag.id} className='tag-item-small'>{tag.name}</span>
+                        )
+                    }
+                    )
+                }
+            </div>
+        )
+
+    }
+
     selectedNote(idx){
     
         this.setState({activeWord: idx})
@@ -94,20 +112,20 @@ export default class NotesIndex extends React.Component {
         if (!notesFiltered) {
             return null
         }
-
+        
         if (this.props.tag) {
             notesFiltered = this.props.tag.notes
         }
         else if (this.props.notebook) {
             notesFiltered = this.props.notes.filter(note => note.notebook_id === this.props.notebook.id)
         }
-
+        
         else {
             notesFiltered = Object.values(this.props.notes)
         }
         if (notesFiltered.length === 0) {
             return (
-            <div className="note-index">
+                <div className="note-index">
                 {this.noteIndexHeader(0)}
                 <div className='flex-center-div'>
                     <button >
@@ -122,12 +140,14 @@ export default class NotesIndex extends React.Component {
                     <div className="note-index-scroll">
                         <ul >
                             {notesFiltered.map(note => {
+                               
                             let url = `/notes/${note.id}`
                             if (this.props.tag) {
                                 url = `/tags/${this.props.tag.id}/${note.id}`
                             }
                             else if (this.props.notebook) {
                             url = `/notebooks/${this.props.notebook.id}/${note.id}`
+
                         }
                             
                             return(
@@ -141,18 +161,8 @@ export default class NotesIndex extends React.Component {
                                         <span className='note-index-item-body'>{this.extractBodyText(note.body).slice(0, 20)}</span>
     
                                             <FontAwesomeIcon onClick={() => this.props.deleteNote(note.id)} icon={faTrash} />
-                                        </div><div className='note-index-tags'>
-
-                                        { 
-                                                note.tags.map(tag => {
-                                                    return(
-
-                                                    <span key={tag.id} className='tag-item-small'>{tag.name}</span>
-                                                    )
-                                                }
-                                                )
-                                            }
                                         </div>
+                                        {note.tags ? this.noteTags(note.tags) : null}
                                         <div className="note-index-item-bottom">
                                             <span id='note-count'>{'last updated ' + timeSince(note.updated_at) + ' ago'}</span>
                                         </div>
