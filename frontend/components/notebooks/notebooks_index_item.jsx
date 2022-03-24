@@ -4,7 +4,7 @@ import timeSince from '../../util/time_since_util';
 import Modal from '../modal/modal';
 import RenameNotebookForm from './rename_notebook_form_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faNoteSticky } from '@fortawesome/free-solid-svg-icons'
+import { faNoteSticky, faBook } from '@fortawesome/free-solid-svg-icons'
 
 export default class NotebookIndexItem extends React.Component {
     constructor(props){
@@ -51,7 +51,7 @@ export default class NotebookIndexItem extends React.Component {
                 <tr>
                     <td style={{width: '30px'}} onClick={() => this.handleExpand()}>{this.state.expanded ? '⮟' : '⮞'}
                     </td>
-                    <td><Link className='hover-underline' to={notebookUrl}>{notebook.subject}
+                    <td><Link className='hover-underline' to={notebookUrl}><FontAwesomeIcon className='zero-padding' icon={faBook} />{notebook.subject}
 
                     </Link><a>{` (${notebook.notes.length})`}</a>
                     </td>
@@ -70,7 +70,7 @@ export default class NotebookIndexItem extends React.Component {
 
                             <td
                             >
-                                <Link className='hover-underline padding10pxleft' to={url}> 
+                                <Link className='hover-underline padding10pxleft' to={url}> <FontAwesomeIcon className='zero-padding' icon={faNoteSticky} />
                                 {/* <FontAwesomeIcon id="note-fai-large" icon={faNoteSticky} /> */}
                                 {note.title}
                                 </Link>
