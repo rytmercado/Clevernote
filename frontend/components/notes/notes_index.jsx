@@ -115,6 +115,9 @@ export default class NotesIndex extends React.Component {
         
         if (this.props.tag) {
             notesFiltered = this.props.tag.notes
+            if (!notesFiltered) {
+                notesFiltered = [];
+            }
         }
         else if (this.props.notebook) {
             notesFiltered = this.props.notes.filter(note => note.notebook_id === this.props.notebook.id)
