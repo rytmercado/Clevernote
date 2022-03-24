@@ -1,6 +1,8 @@
 import React from "react";
 import ReactQuill, { Quill } from "react-quill";
 import NotebookDropdown from "../notebooks/notebook_dropdown";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash, faNoteSticky, faTag, faBook } from '@fortawesome/free-solid-svg-icons'
 // import 'react-quill/dist/quill.snow.css';
 
 
@@ -114,6 +116,7 @@ export default class Editor extends React.Component {
                     />
                 </form>
                     <div className='tag-footer'>
+                    <FontAwesomeIcon icon={faTag} />
                         { 
                             this.props.note.tags.map(tag => {
                                 return(
@@ -126,9 +129,9 @@ export default class Editor extends React.Component {
                         <input
                             className='new-tag-input-field'
                             onChange={this.handleInput('tagName')}
-                            placeholder='tag name'
+                            placeholder='add a tag'
                         ></input>
-                        <a onClick={this.handleCreateTag} className={this.state.tagName.length > 0 ? '' : 'hidden'}>Create new tag
+                        <a onClick={this.handleCreateTag} className={this.state.tagName.length > 0 ? 'create-tag' : 'hidden'}>Create new tag
                             
                         </a>
 
