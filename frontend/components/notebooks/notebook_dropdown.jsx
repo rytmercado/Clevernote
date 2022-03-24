@@ -1,8 +1,6 @@
 import React from 'react';
 
 const NotebookDropdown = ({ notebook_id, notebooks, handleNotebookMove, handleNotebookStateChange }) => {
-    // debugger
-    console.log(notebook_id)
     let notebook
     if (Object.values(notebooks).length !== 0) {
 

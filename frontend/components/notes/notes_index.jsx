@@ -90,10 +90,8 @@ export default class NotesIndex extends React.Component {
     }
 
     render() {
-        // console.log(notesFiltered)
         let notesFiltered = [];
         if (!notesFiltered) {
-            console.log('not here')
             return null
         }
 
@@ -140,9 +138,20 @@ export default class NotesIndex extends React.Component {
                                     <Link to={url} >
                                         <li  className="note-index-item-title" >{note.title}</li>
                                         <div className="delete-note-container">
-                                        <a className='note-index-item-body'>{this.extractBodyText(note.body).slice(0, 20)}</a>
+                                        <span className='note-index-item-body'>{this.extractBodyText(note.body).slice(0, 20)}</span>
     
                                             <FontAwesomeIcon onClick={() => this.props.deleteNote(note.id)} icon={faTrash} />
+                                        </div><div className='note-index-tags'>
+
+                                        { 
+                                                note.tags.map(tag => {
+                                                    return(
+
+                                                    <span key={tag.id} className='tag-item-small'>{tag.name}</span>
+                                                    )
+                                                }
+                                                )
+                                            }
                                         </div>
                                         <div className="note-index-item-bottom">
                                             <span id='note-count'>{'last updated ' + timeSince(note.updated_at) + ' ago'}</span>

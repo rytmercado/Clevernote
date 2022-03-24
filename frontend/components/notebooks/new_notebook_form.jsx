@@ -12,7 +12,6 @@ class NewNotebookForm extends React.Component {
     }
 
     makeNewNotebook(){
-        // console.log(this.state)
         this.props.postNotebook(this.state).then(() => this.setState({subject:''}))
         this.props.handleClose()
     }

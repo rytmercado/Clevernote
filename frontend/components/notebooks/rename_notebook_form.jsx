@@ -12,13 +12,11 @@ class RenameNotebookForm extends React.Component {
     }
 
     renameNotebook(){
-        // console.log(this.state)
         this.props.patchNotebook(this.state)
         this.props.handleClose()
     }
 
     handleInput(type) {
-        // e.preventDefault();
         return e => {
             this.setState({[type]: e.currentTarget.value})
         }

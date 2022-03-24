@@ -41,7 +41,7 @@ export default class Editor extends React.Component {
 
     handleNotebookStateChange(){
         return e => {
-            this.setState({notebook_id: e.currentTarget.value}, () => console.log(this.state))
+            this.setState({notebook_id: e.currentTarget.value})
         }
     }
 
