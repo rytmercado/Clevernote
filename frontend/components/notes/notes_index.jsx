@@ -138,9 +138,9 @@ export default class NotesIndex extends React.Component {
                                     onClick={() => this.selectedNote(note.id)} 
                                     key={note.id} >
                                     <Link to={url} >
-                                        <li  className="note-index-item" >{note.title}</li>
-                                        <li className='note-index-item-body'>{this.extractBodyText(note.body).slice(0, 20)}</li>
+                                        <li  className="note-index-item-title" >{note.title}</li>
                                         <div className="delete-note-container">
+                                        <a className='note-index-item-body'>{this.extractBodyText(note.body).slice(0, 20)}</a>
     
                                             <FontAwesomeIcon onClick={() => this.props.deleteNote(note.id)} icon={faTrash} />
                                         </div>

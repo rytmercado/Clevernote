@@ -149,12 +149,12 @@ a.grey-hover:hover, .selected-nav {
 }
 
 
-.note-index-item {
+.note-index-item-title {
     height: 36px;
     padding-top: 18px;
     padding-left: 24px;
     padding-right: 16px;
-    font-size: 18px;
+    font-size: 16px;
     color: 	#d9d9d9;
 }
 
@@ -166,10 +166,10 @@ a.grey-hover:hover, .selected-nav {
 
 .delete-note-container {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     padding-right: 24px;
     color: #737373;
-    // padding-bottom: 9px;
+    padding-top: 9px;
 }
 
 ::-webkit-scrollbar {
@@ -241,7 +241,7 @@ a.grey-hover:hover, .selected-nav {
 
 .note-index-item-body {
     color: #A6A6A6;
-    padding-top: 8px;
+    padding-bottom: 8px;
     padding-left: 24px;
     font-size: 14px;
     text-rendering: optimizeLegibility;
