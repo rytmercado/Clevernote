@@ -19,6 +19,8 @@ export default class Editor extends React.Component {
         this.handleQuillUpdate = this.handleQuillUpdate.bind(this);
         this.handleInput = this.handleInput.bind(this)
         this.handleCreateTag = this.handleCreateTag.bind(this)
+        this.handleNotebookStateChange = this.handleNotebookStateChange.bind(this)
+        this.handleNotebookMove = this.handleNotebookMove.bind(this)
     }
 
     handleInput(type) {
@@ -34,6 +36,17 @@ export default class Editor extends React.Component {
                 })
         }
       }
+
+    handleNotebookStateChange(){
+        return e => {
+            this.setState({notebook_id: e.currentTarget.value}, () => console.log(this.state))
+        }
+    }
+
+    handleNotebookMove() {
+        this.props.patchNote(this.state)
+        this.props.history.push(`/notebooks/${this.state.notebook_id}`)
+    }
       
     componentDidMount(){
         this.props.getNotebooks()
@@ -77,13 +90,13 @@ export default class Editor extends React.Component {
     }
 
     render(){
-        if(!this.props.note) {
+        if(!this.props.note || !this.state.notebook_id) {
             return null;
         } 
         return(
             <div className="note-body">
                 <form>
-                    <NotebookDropdown note={this.props.note} notebooks={this.props.notebooks} handleInput={this.handleInput} />
+                    <NotebookDropdown notebook_id={this.state.notebook_id} notebooks={this.props.notebooks} handleNotebookMove={this.handleNotebookMove} handleNotebookStateChange={this.handleNotebookStateChange} />
                     <input
                         className="title-field"
                         type="text"
