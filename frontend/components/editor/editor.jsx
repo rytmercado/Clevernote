@@ -116,7 +116,7 @@ export default class Editor extends React.Component {
                     />
                 </form>
                     <div className='tag-footer'>
-                    <FontAwesomeIcon icon={faTag} />
+                    <FontAwesomeIcon className='tag-delete-icon' icon={faTag} />
                         { 
                             this.props.note.tags.map(tag => {
                                 let noteTag = this.props.noteTags.find(nt => (nt.note_id === this.props.note.id && nt.tag_id === tag.id))
