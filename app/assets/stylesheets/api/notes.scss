@@ -242,9 +242,10 @@ a.grey-hover:hover, .selected-nav {
     padding-left: 40px;
     border: none;
     // width: 100%;
-    height: 3vh;
+    height: 40px;
     background-color: #262626;
     box-sizing: border-box;
+    display: flex;
 }
 
 

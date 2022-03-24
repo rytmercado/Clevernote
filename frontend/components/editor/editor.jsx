@@ -119,9 +119,19 @@ export default class Editor extends React.Component {
                     <FontAwesomeIcon icon={faTag} />
                         { 
                             this.props.note.tags.map(tag => {
+                                let noteTag = this.props.noteTags.find(nt => (nt.note_id === this.props.note.id && nt.tag_id === tag.id))
                                 return(
+                                    <div key={tag.id} className='tag-item'>
 
-                                <a onClick={() => this.props.history.push(`/tags/${tag.id}/${this.props.note.id}`)} key={tag.id} className='tag-item'>{tag.name}</a>
+                                        <a 
+                                            onClick={() => this.props.history.push(`/tags/${tag.id}/${this.props.note.id}`)} 
+                                             
+                                            >
+                                            {tag.name}
+                                        </a>
+                                        <a onClick={() => this.props.deleteNoteTag(noteTag.id).then(() => this.props.getNotes())}
+                                        >X</a>
+                                    </div>
                                 )
                             }
                             )

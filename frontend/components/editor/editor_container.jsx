@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import Editor from "./editor";
 import { getNote, getNotes, patchNote } from "../../actions/note_actions"
 import { getNotebooks } from "../../actions/notebook_actions";
-import {getNoteTags, postNoteTag} from '../../actions/note_tag_actions'
+import {deleteNoteTag, getNoteTags, postNoteTag} from '../../actions/note_tag_actions'
 import { getTags, postTag } from "../../actions/tag_actions";
 
 
@@ -16,6 +16,7 @@ const mSTP = (state, ownProps) => {
         notes: state.entities.notes,
         noteId: ownProps.match.params.noteId,
         notebooks: state.entities.notebooks,
+        noteTags: Object.values(state.entities.noteTags),
         tags: Object.values(state.entities.tags),
     }
 }
@@ -29,7 +30,8 @@ const mDTP = (dispatch) => {
         getNoteTags: () => dispatch(getNoteTags()),
         getTags: () => dispatch(getTags()),
         postTag: tag => dispatch(postTag(tag)),
-        postNoteTag: (noteTag) => dispatch(postNoteTag(noteTag))
+        postNoteTag: (noteTag) => dispatch(postNoteTag(noteTag)),
+        deleteNoteTag: (noteTagId) => dispatch(deleteNoteTag(noteTagId))
     }
 }
 
