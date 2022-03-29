@@ -49,6 +49,25 @@ export default class NavbarSession extends React.Component {
                             <FontAwesomeIcon id="note-fai-large" icon={faBook} />
                             Notebooks
                         </Link>
+                        <br/>
+                        <div className='nav-link-icon grey-hover'>
+                            <img className='small-icon' src={window.github}></img>
+                            
+                            <a className='grey-hover zero-padding-left' href='https://github.com/rytmercado' target="_blank">
+                                Github</a>
+                        </div>
+                        <div className='nav-link-icon grey-hover'>
+                            <img className='small-icon-angelist' src={window.angelist}></img>
+                            
+                            <a className='grey-hover zero-padding-left' href='https://angel.co/ry-mercado' target="_blank">
+                                AngelList</a>
+                        </div>
+                        <div className='nav-link-icon grey-hover'>
+                            <img className='small-icon' src={window.linkedin}></img>
+                            
+                            <a className='grey-hover zero-padding-left' href='https://linkedin.com/in/ry-mercado' target="_blank">
+                                Linkedin</a>
+                        </div>
                     </nav>
                 </div>
             </div>
