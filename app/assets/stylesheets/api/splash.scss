@@ -17,6 +17,13 @@
     font-size: 56px;
     font-weight: bold;
 }
+.splash-slogan-header-small {
+    padding-top: 60px;
+    padding-bottom: 10px;
+    font-family: 'Soleil_Regular';
+    font-size: 44px;
+    font-weight: bold;
+}
 
 .splash-slogan {
     font-family: 'Soleil_Regular';
@@ -50,4 +57,30 @@
     :hover {
         color: #00a82d;
     }
+}
+
+.flex-simple {
+    display: flex;
+}
+
+.splash-features {
+    padding-top: 120px;
+    margin-left: 20px;
+    font-family: "Soleil",Helvetica,Arial,sans-serif;
+    text-align: left;
+    
+    p, h1 {
+        padding-bottom: 20px;
+        // -webkit-font-smoothing: antialiased;
+    }
+
+    h1 {
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
 }
