@@ -1,16 +1,34 @@
 import React from "react";
 import Navbar from './navbar/navbar'
 import { Link } from 'react-router-dom'
+import Modal from "../modal/modal";
+import HelpModal from './help_modal'
 
 export default class Splash extends React.Component {
     constructor(props){
         super(props);
+
+        this.state = {
+            showModal: true
+        }
+
+        this.showModal = this.showModal.bind(this)
+        this.closeModal = this.closeModal.bind(this)
+
     };
+
+    closeModal(){
+        this.setState({showModal:false})
+      }
+      
+      showModal(){
+        this.setState({showModal:true})
+      }
 
     render(){
         return (
             <div>
-                <Navbar />
+                <Navbar showModal={this.showModal} closeModal={this.closeModal} />
                 <div className="splash">
                     <div className="row">
                         <div className="splash-slogan-header">
@@ -46,6 +64,7 @@ export default class Splash extends React.Component {
                         <h1 className='splash-slogan-header-small'>Find your productivity happy place</h1>
                     </div>
                 </div>
+                <Modal show={this.state.showModal} children={<HelpModal closeModal={this.closeModal}/>} />
             </div>
         )
     }

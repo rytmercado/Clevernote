@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({showModal, closeModal}) => {
     return (
         <header className="nav-container">
             <div className="topnav">
@@ -11,7 +11,7 @@ const Navbar = () => {
                 <a href='https://angel.co/ry-mercado' target="_blank">AngelList</a>
                 <a href='https://linkedin.com/in/ry-mercado' target="_blank">Linkedin</a>
                 <div className="topnav-right">
-                    <a>Help</a>
+                    <a onClick={() => showModal()}>Help</a>
                     <Link to="/login">
                         Log In
                     </Link>
