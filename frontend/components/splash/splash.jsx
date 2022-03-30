@@ -9,7 +9,7 @@ export default class Splash extends React.Component {
         super(props);
 
         this.state = {
-            showModal: true
+            showModal: false
         }
 
         this.showModal = this.showModal.bind(this)
