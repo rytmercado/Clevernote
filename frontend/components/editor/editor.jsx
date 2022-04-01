@@ -89,6 +89,7 @@ export default class Editor extends React.Component {
                 })
             
         }
+        this.setState({tagName: ''});
     }
 
     render(){
@@ -137,6 +138,7 @@ export default class Editor extends React.Component {
                             )
                         }
                         <input
+                            value={this.state.tagName}
                             className='new-tag-input-field'
                             onChange={this.handleInput('tagName')}
                             placeholder='add a tag'
