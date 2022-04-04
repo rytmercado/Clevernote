@@ -11,12 +11,14 @@
 }
 
 .nav-bar {
+
     width: 240px;
     color: #fff;
     background-color: black;
     position: relative;
     margin: 8px black;
     padding-top: 16px;
+    min-width: 240px;
 
     a, h2, button {
         font-size: 14px;
@@ -67,6 +69,7 @@
     width: 380px;
     background-color: 	#1A1A1A;
     border-right: 1px solid black;
+    min-width: 380px;
     header {
         border-bottom: 1px solid #404040;
         overflow: hidden;
