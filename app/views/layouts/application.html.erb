@@ -8,6 +8,14 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag asset_path('favicon.ico') %>
+     <meta property="og:title" content="Project Title" />
+     <meta property='og:image' content="<%= image_url('clevernote_screenshot.png') %>"/>
+     <meta property="og:description"
+       content="Clone of the popular note-taking website: Evernote"
+     />
+     <meta property="og:url"
+       content="http://clvernote.herokuapp.com/"
+     />
   </head>
 
   <body>
